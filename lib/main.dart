@@ -14,7 +14,7 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       theme: ThemeData(
       
-       ck to zero; the application
+       
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
