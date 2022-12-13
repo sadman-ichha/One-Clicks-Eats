@@ -9,12 +9,14 @@ class SignUpScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Column(
-        crossAxisAlignment: CrossAxisAlignment.center,
+       crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          Image(
-            height: 94.0.h,
-            width: 86.0.w,
-            image: AssetImage(AppImages.splashLogo),
+          Center(
+            child: Image(
+              height: 94.0.h,
+              width: 86.0.w,
+              image: AssetImage(AppImages.splashLogo),
+            ),
           ),
         ],
       ),
