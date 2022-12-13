@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:one_clicks_eats/ui/route/route.dart';
 import 'package:one_clicks_eats/ui/views/splash_screen.dart';
 
 void main() {
@@ -10,9 +12,12 @@ class FoodApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return GetMaterialApp(
       title: "Food App",
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(),
+      initialRoute: splash,
+      getPages: getPages,
       home: const SplashScreen(),
     );
   }
