@@ -1,3 +1,4 @@
+
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:one_clicks_eats/ui/styles/app_style.dart';
@@ -23,6 +24,10 @@ class OnboardingScreen extends StatelessWidget {
                   style: AppStyles.myTitleTextStyle,
                 ),
                 SizedBox(height: 25.0.h),
+                Text(
+                  "ust few click to enter our foodis online app to get best service and We maintained quality.",
+                  style: AppStyles.mySubTitleTextStyle,
+                )
               ],
             ),
           )
