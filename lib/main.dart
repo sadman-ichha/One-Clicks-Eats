@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:one_clicks_eats/const/app_colors.dart';
 import 'package:one_clicks_eats/ui/route/route.dart';
 import 'package:one_clicks_eats/ui/views/splash_screen.dart';
 
@@ -21,7 +22,9 @@ class FoodApp extends StatelessWidget {
           return GetMaterialApp(
             title: "Food App",
             debugShowCheckedModeBanner: false,
-            theme: ThemeData(),
+            theme: ThemeData(
+              backgroundColor: AppColors.scaffoldBackgroundColor,
+            ),
             initialRoute: splash,
             getPages: getPages,
             home: const SplashScreen(),
