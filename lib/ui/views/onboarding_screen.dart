@@ -1,3 +1,4 @@
+import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
@@ -41,17 +42,32 @@ class OnboardingScreen extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    "We have Quality Chief",
+                    _title[_currentIndex.toInt()],
                     style: AppStyles.myTitleTextStyle,
                     textAlign: TextAlign.start,
                   ),
                   SizedBox(height: 14.0.h),
                   Text(
-                    "",
+                    _description[_currentIndex.toInt()],
                     style: AppStyles.mySubTitleTextStyle,
                   )
                 ],
               ),
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                DotsIndicator(
+                  dotsCount: _lottieFiles.length,
+                  position: _currentIndex.toDouble(),
+                ),
+                CircleAvatar(
+                  child: Center(
+                    child: IconButton(
+                        onPressed: () {}, icon: Icon(Icons.arrow_forward)),
+                  ),
+                )
+              ],
             )
           ],
         ),
