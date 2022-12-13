@@ -11,7 +11,7 @@ class SignUpScreen extends StatelessWidget {
     return Scaffold(
       body: SafeArea(
         child: Column(
-         crossAxisAlignment: CrossAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             SizedBox(height: 40.0.h),
             Center(
@@ -20,10 +20,23 @@ class SignUpScreen extends StatelessWidget {
                 width: 86.0.w,
                 image: AssetImage(AppImages.splashLogo),
               ),
-            ),SizedBox(height: 36.0.h),
-            Text("SignUp Now !",style: AppStyles.myTitleTextStyle,),
+            ),
+            SizedBox(height: 36.0.h),
+            Text(
+              "SignUp Now !",
+              style: AppStyles.myTitleTextStyle,
+            ),
             SizedBox(height: 6.0.h),
-            Text("Please sign in to continue our app",style: AppStyles.mySubTitleTextStyle),
+            Text("Please sign in to continue our app",
+                style: AppStyles.mySubTitleTextStyle),
+            SizedBox(height: 43.0.h),
+            Container(
+              height: 57.0.h,
+              width: 307.0.w,
+              child: TextFormField(
+                decoration: InputDecoration(),
+              ),
+            )
           ],
         ),
       ),
