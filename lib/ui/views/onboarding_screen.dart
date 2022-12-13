@@ -9,8 +9,15 @@ class OnboardingScreen extends StatelessWidget {
       body: Column(
         children: [
           Expanded(
-            child: Container(),
+            flex: 1,
+            child: Container(color: Colors.amber),
           ),
+          Expanded(
+            flex: 1,
+            child: Column(
+              children: [Text("we have quality  Chief")],
+            ),
+          )
         ],
       ),
     );
