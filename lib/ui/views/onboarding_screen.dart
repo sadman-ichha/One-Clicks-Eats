@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:one_clicks_eats/ui/styles/app_style.dart';
 
 class OnboardingScreen extends StatelessWidget {
   const OnboardingScreen({super.key});
@@ -15,7 +16,7 @@ class OnboardingScreen extends StatelessWidget {
           Expanded(
             flex: 1,
             child: Column(
-              children: [Text("we have quality  Chief")],
+              children: [Text("we have quality  Chief",style: AppStyles,)],
             ),
           )
         ],
