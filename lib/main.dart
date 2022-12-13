@@ -13,16 +13,17 @@ class FoodApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ScreenUtilInit(builder: (context,child){
-      return  GetMaterialApp(
-        title: "Food App",
-        debugShowCheckedModeBanner: false,
-        theme: ThemeData(),
-        initialRoute: splash,
-        getPages: getPages,
-        home: const SplashScreen(),
-      ),
-   
-    });
+    return ScreenUtilInit(
+        designSize: const Size(375, 812),
+        builder: (context, child) {
+          return GetMaterialApp(
+            title: "Food App",
+            debugShowCheckedModeBanner: false,
+            theme: ThemeData(),
+            initialRoute: splash,
+            getPages: getPages,
+            home: const SplashScreen(),
+          );
+        });
   }
 }
