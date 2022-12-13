@@ -1,12 +1,29 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
+import 'package:lottie/lottie.dart';
 import 'package:one_clicks_eats/ui/styles/app_style.dart';
 
 class OnboardingScreen extends StatelessWidget {
   // const OnboardingScreen({super.key});
 
-  List<String> _lottieFiles = ['chef.json', "Eating Food.json", "Foods.json"];
+  List<String> _lottieFiles = [
+    'assets/file/chef.json',
+    "assets/file/Eating Food.json",
+    "assets/file/Foods.json"
+  ];
+  List<String> _title = [
+    'We have Quality Chief',
+    "We are Maintained Quality",
+    "Enjoy Delicious Food",
+  ];
+  List<String> _description = [
+    "Just few click to enter our foodis online app to get best service and We maintained quality.",
+    "Just few click to enter our foodis online app to get best service and We maintained quality.",
+    "Just few click to enter our foodis online app to get best service and We maintained quality."
+  ];
 
+  RxInt _currentIndex = 0.obs;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -14,10 +31,10 @@ class OnboardingScreen extends StatelessWidget {
         padding: EdgeInsets.only(left: 35.0.w, right: 35.0.w),
         child: Column(
           children: [
-            Expanded(
-              flex: 1,
-              child: Container(color: Colors.amber),
-            ),
+            Obx((() => Expanded(
+                  flex: 1,
+                  child: Lottie.asset(_lottieFiles[_currentIndex.toInt()]),
+                ))),
             Expanded(
               flex: 1,
               child: Column(
@@ -30,7 +47,7 @@ class OnboardingScreen extends StatelessWidget {
                   ),
                   SizedBox(height: 14.0.h),
                   Text(
-                    "Just few click to enter our foodis online app to get best service and We maintained quality.",
+                    "",
                     style: AppStyles.mySubTitleTextStyle,
                   )
                 ],
