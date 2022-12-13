@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:lottie/lottie.dart';
+import 'package:one_clicks_eats/const/app_colors.dart';
 import 'package:one_clicks_eats/ui/styles/app_style.dart';
 
 class OnboardingScreen extends StatelessWidget {
@@ -29,7 +30,7 @@ class OnboardingScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Padding(
-        padding: EdgeInsets.only(left: 35.0.w, right: 35.0.w,bottom: 30.0.h),
+        padding: EdgeInsets.only(left: 35.0.w, right: 35.0.w, bottom: 30.0.h),
         child: Column(
           children: [
             Obx((() => Expanded(
@@ -60,17 +61,28 @@ class OnboardingScreen extends StatelessWidget {
                 DotsIndicator(
                   dotsCount: _lottieFiles.length,
                   position: _currentIndex.toDouble(),
+                  decorator: DotsDecorator(
+                    size: Size(10.0.w, 10.0.h),
+                    //activeSize: Size(14.0.w, 14.0.h),
+                    color: Color(0xFF737077),
+                    activeColor: AppColors.appleColor,
+                  ),
                 ),
                 CircleAvatar(
-                  radius: 34.0.r ,
+                  radius: 34.0.r,
+                  backgroundColor: AppColors.appleColor,
                   child: Center(
                     child: IconButton(
-                        onPressed: () {}, icon: Icon(Icons.arrow_forward,size: 35.0,)),
+                        onPressed: () {},
+                        icon: Icon(
+                          Icons.arrow_forward,
+                          size: 35.0,
+                          color: Colors.white,
+                        )),
                   ),
                 )
               ],
             )
-         
           ],
         ),
       ),
