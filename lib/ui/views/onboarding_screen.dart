@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:one_clicks_eats/ui/styles/app_style.dart';
 
 class OnboardingScreen extends StatelessWidget {
@@ -16,7 +17,13 @@ class OnboardingScreen extends StatelessWidget {
           Expanded(
             flex: 1,
             child: Column(
-              children: [Text("we have quality  Chief",style: AppStyles,)],
+              children: [
+                Text(
+                  "We have Quality Chief",
+                  style: AppStyles.myTitleTextStyle,
+                ),
+                SizedBox(height: 25.0.h),
+              ],
             ),
           )
         ],
