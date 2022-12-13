@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:one_clicks_eats/ui/route/route.dart';
 import 'package:one_clicks_eats/ui/views/splash_screen.dart';
@@ -12,13 +13,16 @@ class FoodApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GetMaterialApp(
-      title: "Food App",
-      debugShowCheckedModeBanner: false,
-      theme: ThemeData(),
-      initialRoute: splash,
-      getPages: getPages,
-      home: const SplashScreen(),
-    );
+    return ScreenUtilInit(builder: (context,child){
+      return  GetMaterialApp(
+        title: "Food App",
+        debugShowCheckedModeBanner: false,
+        theme: ThemeData(),
+        initialRoute: splash,
+        getPages: getPages,
+        home: const SplashScreen(),
+      ),
+   
+    });
   }
 }
