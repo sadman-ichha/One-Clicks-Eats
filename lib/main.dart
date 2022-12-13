@@ -15,6 +15,8 @@ class FoodApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return ScreenUtilInit(
         designSize: const Size(375, 812),
+        splitScreenMode: true,
+        minTextAdapt: true,
         builder: (context, child) {
           return GetMaterialApp(
             title: "Food App",
