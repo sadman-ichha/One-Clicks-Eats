@@ -34,9 +34,15 @@ class SignUpScreen extends StatelessWidget {
               height: 57.0.h,
               width: 307.0.w,
               child: TextFormField(
-                decoration: InputDecoration(),
+                decoration: InputDecoration(border: OutlineInputBorder()),
               ),
-            )
+            ),SizedBox(height: 43.0.h),
+            Container(height: 57.0.h,
+              width: 307.0.w,
+              child: TextFormField(
+                  decoration: InputDecoration(border: OutlineInputBorder()),
+                ),
+            ),
           ],
         ),
       ),
