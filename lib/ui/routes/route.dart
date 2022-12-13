@@ -12,6 +12,6 @@ List<GetPage> getPages = [
   ),
   GetPage(
     name: onboarding,
-    page: () => const OnboardingScreen(),
+    page: () =>  OnboardingScreen(),
   ),
 ];

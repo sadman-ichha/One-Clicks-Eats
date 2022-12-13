@@ -3,14 +3,16 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:one_clicks_eats/ui/styles/app_style.dart';
 
 class OnboardingScreen extends StatelessWidget {
-  const OnboardingScreen({super.key});
+  // const OnboardingScreen({super.key});
+
+  List<String> _lottieFiles = ['chef.json', "Eating Food.json", "Foods.json"];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Padding(
         padding: EdgeInsets.only(left: 35.0.w, right: 35.0.w),
-        child: Column( 
+        child: Column(
           children: [
             Expanded(
               flex: 1,
@@ -19,7 +21,7 @@ class OnboardingScreen extends StatelessWidget {
             Expanded(
               flex: 1,
               child: Column(
-               crossAxisAlignment: CrossAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
                     "We have Quality Chief",
