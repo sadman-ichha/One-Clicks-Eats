@@ -4,6 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:lottie/lottie.dart';
 import 'package:one_clicks_eats/const/app_colors.dart';
+import 'package:one_clicks_eats/ui/routes/route.dart';
 import 'package:one_clicks_eats/ui/styles/app_style.dart';
 
 class OnboardingScreen extends StatelessWidget {
@@ -11,8 +12,8 @@ class OnboardingScreen extends StatelessWidget {
 
   List<String> _lottieFiles = [
     'assets/file/chef.json',
+    "assets/file/Foods.json",
     "assets/file/Eating Food.json",
-    "assets/file/Foods.json"
   ];
   List<String> _title = [
     'We have Quality Chief',
@@ -26,9 +27,26 @@ class OnboardingScreen extends StatelessWidget {
   ];
 
   RxInt _currentIndex = 0.obs;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        automaticallyImplyLeading: false,
+        elevation: 0,
+        backgroundColor: Colors.white,
+        actions: [
+          Center(
+              child: Padding(
+            padding: EdgeInsets.only(right: 20.0.w),
+            child: Text("SKIP",
+                style: TextStyle(
+                    fontSize: 16.0.sp,
+                    fontWeight: FontWeight.w500,
+                    color: Color(0xFF8D8D8D))),
+          )),
+        ],
+      ),
       body: Padding(
         padding: EdgeInsets.only(left: 35.0.w, right: 35.0.w, bottom: 30.0.h),
         child: Column(
@@ -42,30 +60,32 @@ class OnboardingScreen extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(
-                    _title[_currentIndex.toInt()],
-                    style: AppStyles.myTitleTextStyle,
-                    textAlign: TextAlign.start,
-                  ),
+                  Obx(() => Text(
+                        _title[_currentIndex.toInt()],
+                        style: AppStyles.myTitleTextStyle,
+                        textAlign: TextAlign.start,
+                      )),
                   SizedBox(height: 14.0.h),
-                  Text(
-                    _description[_currentIndex.toInt()],
-                    style: AppStyles.mySubTitleTextStyle,
-                  )
+                  Obx(() => Text(
+                        _description[_currentIndex.toInt()],
+                        style: AppStyles.mySubTitleTextStyle,
+                      ))
                 ],
               ),
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                DotsIndicator(
-                  dotsCount: _lottieFiles.length,
-                  position: _currentIndex.toDouble(),
-                  decorator: DotsDecorator(
-                    size: Size(10.0.w, 10.0.h),
-                    //activeSize: Size(14.0.w, 14.0.h),
-                    color: Color(0xFF737077),
-                    activeColor: AppColors.appleColor,
+                Obx(
+                  () => DotsIndicator(
+                    dotsCount: _lottieFiles.length,
+                    position: _currentIndex.toDouble(),
+                    decorator: DotsDecorator(
+                      size: Size(10.0.w, 10.0.h),
+                      //activeSize: Size(14.0.w, 14.0.h),
+                      color: Color(0xFF737077),
+                      activeColor: AppColors.appleColor,
+                    ),
                   ),
                 ),
                 CircleAvatar(
@@ -73,7 +93,13 @@ class OnboardingScreen extends StatelessWidget {
                   backgroundColor: AppColors.appleColor,
                   child: Center(
                     child: IconButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          if (_currentIndex == 2) {
+                            Get.toNamed(signup);
+                          } else {
+                            _currentIndex++;
+                          }
+                        },
                         icon: Icon(
                           Icons.arrow_forward,
                           size: 35.0,
@@ -82,7 +108,7 @@ class OnboardingScreen extends StatelessWidget {
                   ),
                 )
               ],
-            )
+            ),
           ],
         ),
       ),
