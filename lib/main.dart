@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:one_clicks_eats/const/app_colors.dart';
-import 'package:one_clicks_eats/ui/route/route.dart';
+import 'package:one_clicks_eats/ui/routes/route.dart';
 import 'package:one_clicks_eats/ui/views/splash_screen.dart';
 
 void main() {

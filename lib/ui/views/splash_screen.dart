@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:one_clicks_eats/const/app_imags.dart';
-import 'package:one_clicks_eats/ui/route/route.dart';
+import 'package:one_clicks_eats/ui/routes/route.dart';
 
 class SplashScreen extends StatelessWidget {
   const SplashScreen({super.key});
