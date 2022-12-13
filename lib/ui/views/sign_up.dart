@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:one_clicks_eats/const/app_imags.dart';
+import 'package:one_clicks_eats/ui/styles/app_style.dart';
 
 class SignUpScreen extends StatelessWidget {
   const SignUpScreen({super.key});
@@ -19,7 +20,10 @@ class SignUpScreen extends StatelessWidget {
                 width: 86.0.w,
                 image: AssetImage(AppImages.splashLogo),
               ),
-            ),
+            ),SizedBox(height: 36.0.h),
+            Text("SignUp Now !",style: AppStyles.myTitleTextStyle,),
+            SizedBox(height: 6.0.h),
+            Text("Please sign in to continue our app",style: AppStyles.mySubTitleTextStyle),
           ],
         ),
       ),
