@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:one_clicks_eats/const/app_imags.dart';
+import 'package:one_clicks_eats/controller/splash_controller.dart';
 
 class SplashScreen extends StatelessWidget {
   const SplashScreen({super.key});
@@ -9,7 +10,9 @@ class SplashScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: GetBuilder(builder: (controller) {
+      body: GetBuilder(
+        init: SplashController(),
+        builder: (controller) {
         return Center(
             child: Image.asset(
           AppImages.splashLogo,
