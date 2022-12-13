@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:one_clicks_eats/const/app_imags.dart';
 import 'package:one_clicks_eats/ui/styles/app_style.dart';
+import 'package:one_clicks_eats/ui/widgets/custom_text_field.dart';
 
 class SignUpScreen extends StatelessWidget {
   const SignUpScreen({super.key});
@@ -30,19 +31,9 @@ class SignUpScreen extends StatelessWidget {
             Text("Please sign in to continue our app",
                 style: AppStyles.mySubTitleTextStyle),
             SizedBox(height: 43.0.h),
-            Container(
-              height: 57.0.h,
-              width: 307.0.w,
-              child: TextFormField(
-                decoration: InputDecoration(border: OutlineInputBorder()),
-              ),
-            ),SizedBox(height: 43.0.h),
-            Container(height: 57.0.h,
-              width: 307.0.w,
-              child: TextFormField(
-                  decoration: InputDecoration(border: OutlineInputBorder()),
-                ),
-            ),
+            CustomTextField(),
+            SizedBox(height: 43.0.h),
+            
           ],
         ),
       ),

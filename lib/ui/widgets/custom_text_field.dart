@@ -6,11 +6,16 @@ class CustomTextField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-        height: 57.0.h,
-        width: 307.0.w,
-        child: TextFormField(
-          decoration: InputDecoration(border: OutlineInputBorder()),
-        ));
+    return Column(
+      children: [
+        Text(data)
+        Container(
+            height: 57.0.h,
+            width: 307.0.w,
+            child: TextFormField(
+              decoration: InputDecoration(border: OutlineInputBorder()),
+            )),
+      ],
+    );
   }
 }
