@@ -29,7 +29,7 @@ class OnboardingScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Padding(
-        padding: EdgeInsets.only(left: 35.0.w, right: 35.0.w),
+        padding: EdgeInsets.only(left: 35.0.w, right: 35.0.w,bottom: 30.0.h),
         child: Column(
           children: [
             Obx((() => Expanded(
@@ -62,13 +62,15 @@ class OnboardingScreen extends StatelessWidget {
                   position: _currentIndex.toDouble(),
                 ),
                 CircleAvatar(
+                  radius: 34.0.r ,
                   child: Center(
                     child: IconButton(
-                        onPressed: () {}, icon: Icon(Icons.arrow_forward)),
+                        onPressed: () {}, icon: Icon(Icons.arrow_forward,size: 35.0,)),
                   ),
                 )
               ],
             )
+         
           ],
         ),
       ),
