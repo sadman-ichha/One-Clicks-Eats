@@ -69,7 +69,7 @@ class OnboardingScreen extends StatelessWidget {
                   Obx(() => Text(
                         _description[_currentIndex.toInt()],
                         style: AppStyles.mySubTitleTextStyle,
-                      ))
+                      )),
                 ],
               ),
             ),
