@@ -10,9 +10,10 @@ class CustomTextField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        SizedBox(height: 7.0.h),
         Text(hintsText!),
+        SizedBox(height: 7.0.h),
         Container(
             height: 57.0.h,
             width: 307.0.w,
