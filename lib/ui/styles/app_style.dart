@@ -2,11 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'package:one_clicks_eats/ui/routes/route.dart';
 import '../../const/app_colors.dart';
 
 class AppStyles {
-  RichText richText(String firstText, String secText, navigatePage) => RichText(
+  RichText richText(String firstText, String secText,navigatePage) => RichText(
         text: TextSpan(
             text: firstText,
             style: TextStyle(
@@ -22,7 +21,7 @@ class AppStyles {
                     fontWeight: FontWeight.w400,
                     color: AppColors.appleColor),
                 recognizer: TapGestureRecognizer()
-                  ..onTap = () => Get.toNamed(login),
+                  ..onTap = () => Get.toNamed(navigatePage),
               )
             ]),
       );
