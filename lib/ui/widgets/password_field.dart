@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
 import 'package:one_clicks_eats/const/app_colors.dart';
 
-Widget customTextField(
+RxBool isVisible = false.obs;
+
+Widget passwordTextField(
     String hintsText, IconData icon, TextEditingController controller) {
   return Column(
     crossAxisAlignment: CrossAxisAlignment.start,
@@ -22,8 +25,19 @@ Widget customTextField(
             controller: controller,
             obscureText: true,
             decoration: InputDecoration(
-                prefixIcon: Icon(icon, color: AppColors.appleColor),
-                border: OutlineInputBorder()),
+              prefixIcon: Icon(icon, color: AppColors.appleColor),
+              border: OutlineInputBorder(),
+              suffix: Obx(
+                () => IconButton(
+                  onPressed: () {
+                    isVisible.value = !isVisible.value;
+                  },
+                  icon: isVisible == false
+                      ? Icon(Icons.visibility_off_outlined)
+                      : Icon(Icons.visibility_outlined),
+                ),
+              ),
+            ),
           )),
     ],
   );

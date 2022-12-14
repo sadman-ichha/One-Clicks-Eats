@@ -3,10 +3,11 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:one_clicks_eats/const/app_imags.dart';
 import 'package:one_clicks_eats/ui/styles/app_style.dart';
 import 'package:one_clicks_eats/ui/widgets/custom_text_field.dart';
+import 'package:one_clicks_eats/ui/widgets/password_field.dart';
 
 class SignUpScreen extends StatelessWidget {
   TextEditingController _emailController = TextEditingController();
-
+  TextEditingController _passController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -33,7 +34,8 @@ class SignUpScreen extends StatelessWidget {
             SizedBox(height: 43.0.h),
             customTextField(
                 "Email Address", Icons.email_outlined, _emailController),
-            SizedBox(height: 43.0.h),
+            SizedBox(height: 18.0.h),
+            passwordTextField("Password", Icons.lock_outline, _passController)
           ],
         ),
       ),
