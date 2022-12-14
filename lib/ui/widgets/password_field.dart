@@ -33,8 +33,10 @@ Widget passwordTextField(
                         isVisible.value = !isVisible.value;
                       },
                       icon: isVisible == false
-                          ? Icon(Icons.visibility_outlined)
-                          : Icon(Icons.visibility_off_outlined),
+                          ? Icon(Icons.visibility_outlined,
+                              color: Color(0xFF969696))
+                          : Icon(Icons.visibility_off_outlined,
+                              color: Color(0xFF969696)),
                     ),
                   ),
                 ),
