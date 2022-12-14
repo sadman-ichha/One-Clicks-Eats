@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:one_clicks_eats/const/app_colors.dart';
 
-Widget customTextField(
-    String hintsText, IconData icon, TextEditingController controller) {
+Widget customTextField(String hintsText, IconData icon,
+    TextEditingController controller, TextInputType keyboardType) {
   return Column(
     crossAxisAlignment: CrossAxisAlignment.start,
     children: [
@@ -20,6 +20,7 @@ Widget customTextField(
           width: 307.0.w,
           child: TextFormField(
             controller: controller,
+            keyboardType: keyboardType,
             decoration: InputDecoration(
                 prefixIcon: Icon(icon, color: AppColors.appleColor),
                 border: OutlineInputBorder()),

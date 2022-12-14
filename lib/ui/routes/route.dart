@@ -8,6 +8,7 @@ const String splash = "/splash-screen";
 const String onboarding = "/onboarding-screen";
 const String signup = "/signup-screen";
 const String login = "/login-screen";
+const String home = "/home-screen";
 
 List<GetPage> getPages = [
   GetPage(
