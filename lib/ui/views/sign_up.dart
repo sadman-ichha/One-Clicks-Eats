@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:one_clicks_eats/const/app_imags.dart';
 import 'package:one_clicks_eats/ui/styles/app_style.dart';
+import 'package:one_clicks_eats/ui/widgets/apple_button.dart';
 import 'package:one_clicks_eats/ui/widgets/custom_text_field.dart';
 import 'package:one_clicks_eats/ui/widgets/password_field.dart';
 
@@ -35,7 +36,9 @@ class SignUpScreen extends StatelessWidget {
             customTextField(
                 "Email Address", Icons.email_outlined, _emailController),
             SizedBox(height: 18.0.h),
-            passwordTextField("Password", Icons.lock_outline, _passController)
+            passwordTextField("Password", Icons.lock_outline, _passController),
+             SizedBox(height: 43.0.h),
+             AppleButton("Sign Up", (){}),
           ],
         ),
       ),
