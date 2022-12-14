@@ -11,6 +11,7 @@ class SignUpScreen extends StatelessWidget {
   TextEditingController _nameController = TextEditingController();
   TextEditingController _emailORphoneController = TextEditingController();
   TextEditingController _passController = TextEditingController();
+  TextEditingController _confirmPassController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -37,15 +38,20 @@ class SignUpScreen extends StatelessWidget {
                   style: AppStyles.mySubTitleTextStyle),
               SizedBox(height: 43.0.h),
               customTextField(
-                  "Name", Icons.person, _nameController,TextInputType.name),
-              SizedBox(height: 18.0.h),
-              customTextField(
-                  "Email or Phone", Icons.perm_phone_msg_rounded, _emailORphoneController,TextInputType.none),
-              passwordTextField("Password", Icons.lock_outline, _passController),
+                  "Name", Icons.person, _nameController, TextInputType.name),
+              SizedBox(height: 10.0.h),
+              customTextField("Email or Phone", Icons.perm_phone_msg_rounded,
+                  _emailORphoneController, TextInputType.none),
+              SizedBox(height: 10.0.h),
+              passwordTextField(
+                  "Password", Icons.lock_outline, _passController),
+              SizedBox(height: 10.0.h),
+              passwordTextField(
+                  "Confirm Password", Icons.lock_outline, _confirmPassController),
               SizedBox(height: 43.0.h),
               AppleButton("Sign Up", () {}),
               SizedBox(height: 27.0.h),
-              AppStyles().richText("Have an Account? ", "Log In",login),
+              AppStyles().richText("Have an Account? ", "Log In", login),
             ],
           ),
         ),
