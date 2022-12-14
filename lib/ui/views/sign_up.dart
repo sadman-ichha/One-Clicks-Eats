@@ -5,7 +5,7 @@ import 'package:one_clicks_eats/ui/styles/app_style.dart';
 import 'package:one_clicks_eats/ui/widgets/custom_text_field.dart';
 
 class SignUpScreen extends StatelessWidget {
-  const SignUpScreen({super.key});
+  TextEditingController _emailController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -31,10 +31,9 @@ class SignUpScreen extends StatelessWidget {
             Text("Please sign in to continue our app",
                 style: AppStyles.mySubTitleTextStyle),
             SizedBox(height: 43.0.h),
-            
+            customTextField(
+                "Email Address", Icons.email_outlined, _emailController),
             SizedBox(height: 43.0.h),
-            
-            
           ],
         ),
       ),
