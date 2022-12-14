@@ -15,7 +15,10 @@ class CustomTextField extends StatelessWidget {
       children: [
         Text(
           hintsText!,
-          style: TextStyle(fontSize: 14.0.sp, fontWeight: FontWeight.w500),
+          style: TextStyle(
+              fontSize: 14.0.sp,
+              fontWeight: FontWeight.w500,
+              color: Color(0xFF969696)),
         ),
         SizedBox(height: 7.0.h),
         Container(
