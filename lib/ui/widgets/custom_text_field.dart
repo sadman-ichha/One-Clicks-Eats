@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:one_clicks_eats/const/app_colors.dart';
 
 class CustomTextField extends StatelessWidget {
   //const CustomTextField({super.key});
@@ -17,7 +18,7 @@ class CustomTextField extends StatelessWidget {
           hintsText!,
           style: TextStyle(
               fontSize: 14.0.sp,
-              fontWeight: FontWeight.w500,
+              fontWeight: FontWeight.w600,
               color: Color(0xFF969696)),
         ),
         SizedBox(height: 7.0.h),
@@ -26,7 +27,8 @@ class CustomTextField extends StatelessWidget {
             width: 307.0.w,
             child: TextFormField(
               decoration: InputDecoration(
-                  prefixIcon: Icon(icon!), border: OutlineInputBorder()),
+                  prefixIcon: Icon(icon!, color: AppColors.appleColor),
+                  border: OutlineInputBorder()),
             )),
       ],
     );
