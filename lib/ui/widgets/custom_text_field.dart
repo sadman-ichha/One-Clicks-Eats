@@ -11,7 +11,8 @@ class CustomTextField extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Text("data"),
+        SizedBox(height: 7.0.h),
+        Text(hintsText!),
         Container(
             height: 57.0.h,
             width: 307.0.w,

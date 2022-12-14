@@ -31,7 +31,7 @@ class SignUpScreen extends StatelessWidget {
             Text("Please sign in to continue our app",
                 style: AppStyles.mySubTitleTextStyle),
             SizedBox(height: 43.0.h),
-            CustomTextField(),
+            // CustomTextField(),
             SizedBox(height: 43.0.h),
             
           ],
