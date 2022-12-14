@@ -3,7 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:one_clicks_eats/const/app_colors.dart';
 
-RxBool isVisible = false.obs;
+RxBool isVisible = true.obs;
 
 Widget passwordTextField(
     String hintsText, IconData icon, TextEditingController controller) {
@@ -21,24 +21,24 @@ Widget passwordTextField(
       Container(
           height: 57.0.h,
           width: 307.0.w,
-          child: TextFormField(
-            controller: controller,
-            obscureText: true,
-            decoration: InputDecoration(
-              prefixIcon: Icon(icon, color: AppColors.appleColor),
-              border: OutlineInputBorder(),
-              suffix: Obx(
-                () => IconButton(
-                  onPressed: () {
-                    isVisible.value = !isVisible.value;
-                  },
-                  icon: isVisible == false
-                      ? Icon(Icons.visibility_off_outlined)
-                      : Icon(Icons.visibility_outlined),
+          child: Obx((() => TextFormField(
+                controller: controller,
+                obscureText: isVisible.value,
+                decoration: InputDecoration(
+                  prefixIcon: Icon(icon, color: AppColors.appleColor),
+                  border: OutlineInputBorder(),
+                  suffix: Obx(
+                    () => IconButton(
+                      onPressed: () {
+                        isVisible.value = !isVisible.value;
+                      },
+                      icon: isVisible == false
+                          ? Icon(Icons.visibility_outlined)
+                          : Icon(Icons.visibility_off_outlined),
+                    ),
+                  ),
                 ),
-              ),
-            ),
-          )),
+              )))),
     ],
   );
 }
