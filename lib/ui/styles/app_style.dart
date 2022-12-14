@@ -21,7 +21,7 @@ class AppStyles {
                     fontWeight: FontWeight.w500,
                     color: AppColors.appleColor),
                 recognizer: TapGestureRecognizer()
-                  ..onTap = () => Get.toNamed(navigatePage),
+                  ..onTap= () => Get.toNamed(navigatePage),
               )
             ]),
       );

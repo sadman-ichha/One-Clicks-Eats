@@ -41,7 +41,7 @@ class SignUpScreen extends StatelessWidget {
             SizedBox(height: 43.0.h),
             AppleButton("Sign Up", () {}),
             SizedBox(height: 27.0.h),
-            AppStyles().richText("Have an Account? ", "Log In", () => login),
+            AppStyles().richText("Have an Account? ", "Log In",signup),
           ],
         ),
       ),
