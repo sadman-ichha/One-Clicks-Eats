@@ -17,7 +17,8 @@ class CustomTextField extends StatelessWidget {
             height: 57.0.h,
             width: 307.0.w,
             child: TextFormField(
-              decoration: InputDecoration(border: OutlineInputBorder()),
+              decoration: InputDecoration(
+                  prefixIcon: Icon(Icons.email), border: OutlineInputBorder()),
             )),
       ],
     );
