@@ -20,7 +20,7 @@ class SignUpScreen extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              SizedBox(height: 40.0.h),
+              SizedBox(height: 20.0.h),
               Center(
                 child: Image(
                   height: 94.0.h,
@@ -28,29 +28,29 @@ class SignUpScreen extends StatelessWidget {
                   image: AssetImage(AppImages.splashLogo),
                 ),
               ),
-              SizedBox(height: 36.0.h),
+              SizedBox(height: 16.0.h),
               Text(
                 "SignUp Now !",
                 style: AppStyles.myTitleTextStyle,
               ),
-              SizedBox(height: 6.0.h),
-              Text("Please sign in to continue our app",
+              SizedBox(height: 5.0.h),
+              Text("Please signup to account our app",
                   style: AppStyles.mySubTitleTextStyle),
-              SizedBox(height: 43.0.h),
+              SizedBox(height: 35.0.h),
               customTextField(
                   "Name", Icons.person, _nameController, TextInputType.name),
-              SizedBox(height: 10.0.h),
+              SizedBox(height: 8.0.h),
               customTextField("Email or Phone", Icons.perm_phone_msg_rounded,
-                  _emailORphoneController, TextInputType.none),
-              SizedBox(height: 10.0.h),
+                  _emailORphoneController, TextInputType.text),
+              SizedBox(height: 8.0.h),
               passwordTextField(
                   "Password", Icons.lock_outline, _passController),
-              SizedBox(height: 10.0.h),
-              passwordTextField(
-                  "Confirm Password", Icons.lock_outline, _confirmPassController),
-              SizedBox(height: 43.0.h),
+              SizedBox(height: 8.0.h),
+              passwordTextField("Confirm Password", Icons.lock_outline,
+                  _confirmPassController),
+              SizedBox(height: 35.0.h),
               AppleButton("Sign Up", () {}),
-              SizedBox(height: 27.0.h),
+              SizedBox(height: 14.0.h),
               AppStyles().richText("Have an Account? ", "Log In", login),
             ],
           ),
