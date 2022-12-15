@@ -19,7 +19,6 @@ class SignUpHelper {
 
     var response = await http.post(Uri.parse(url), body: body);
     var json = response.body;
-
     var signUpModels = signUpModelFromJson(json);
     if (response.statusCode == 201) {
       if (signUpModels.result == false) {
