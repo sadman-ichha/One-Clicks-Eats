@@ -72,17 +72,10 @@ class SignUpScreen extends StatelessWidget {
               passwordTextField("Confirm Password", Icons.lock_outline,
                   _confirmPassController),
               SizedBox(height: 35.0.h),
-              Obx(
-                () => loader.value
-                    ? Center(
-                        child: CircularProgressIndicator(
-                          color: Colors.indigo,
-                        ),
-                      )
-                    : AppleButton("Sign Up", () {
-                        apiPostRegister();
-                      }),
-              ),
+              AppleButton("Sign Up", () {
+                //apiPostRegister();
+                Get.toNamed(otp);
+              }),
               SizedBox(height: 14.0.h),
               AppStyles().richText("Have an Account? ", "Log In", login),
             ],
