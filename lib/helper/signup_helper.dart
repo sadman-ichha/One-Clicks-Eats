@@ -17,7 +17,7 @@ class SignUpHelper {
     String url = Config.serverURl + Config.signupURl;
     var headers = {"Accept": "application/json"};
     SignUpModel? signUpModels;
-    RxBool progress = false.obs;
+
     var body = {
       "name": name,
       "email_or_phone": emailOrPhone,
@@ -31,18 +31,31 @@ class SignUpHelper {
     signUpModels = signUpModelFromJson(json);
     if (response.statusCode == 201) {
       if (signUpModels.result == false) {
-        EasyLoading.showError(signUpModels.message.toString());
+        Fluttertoast.showToast(
+          msg: "${signUpModels.message.toString()}",
+          toastLength: Toast.LENGTH_SHORT,
+          gravity: ToastGravity.BOTTOM,
+          timeInSecForIosWeb: 1,
+          backgroundColor: AppColors.appleColor,
+          textColor: Colors.white,
+          fontSize: 16.0.sp,
+        );
       } else {
         Fluttertoast.showToast(
           msg: "${signUpModels.message.toString()}",
-         
+          toastLength: Toast.LENGTH_SHORT,
+          gravity: ToastGravity.CENTER,
+          timeInSecForIosWeb: 1,
+          backgroundColor: AppColors.appleColor,
+          textColor: Colors.white,
+          fontSize: 16.0.sp,
         );
       }
     } else {
       Fluttertoast.showToast(
         msg: signUpModels.message.toString(),
         toastLength: Toast.LENGTH_SHORT,
-        gravity: ToastGravity.TOP,
+        gravity: ToastGravity.BOTTOM,
         timeInSecForIosWeb: 1,
         backgroundColor: AppColors.appleColor,
         textColor: Colors.white,

@@ -18,6 +18,7 @@ class SignUpScreen extends StatelessWidget {
   TextEditingController _passController = TextEditingController();
   TextEditingController _confirmPassController = TextEditingController();
   String? registerBy;
+  RxBool loader = false.obs;
 
   apiPostRegister() async {
     if (_emailORphoneController.text.contains("@")) {
@@ -71,9 +72,17 @@ class SignUpScreen extends StatelessWidget {
               passwordTextField("Confirm Password", Icons.lock_outline,
                   _confirmPassController),
               SizedBox(height: 35.0.h),
-              AppleButton("Sign Up", () {
-                apiPostRegister();
-              }),
+              Obx(
+                () => loader.value
+                    ? Center(
+                        child: CircularProgressIndicator(
+                          color: Colors.indigo,
+                        ),
+                      )
+                    : AppleButton("Sign Up", () {
+                        apiPostRegister();
+                      }),
+              ),
               SizedBox(height: 14.0.h),
               AppStyles().richText("Have an Account? ", "Log In", login),
             ],
