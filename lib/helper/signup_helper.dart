@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:one_clicks_eats/const/server_config.dart';
 import 'package:one_clicks_eats/models/sign_up_model.dart';
@@ -25,14 +26,7 @@ class SignUpHelper {
     signUpModels = signUpModelFromJson(json);
     if (response.statusCode == 201) {
       if (signUpModels.result == false) {
-        Fluttertoast.showToast(
-            msg: "${signUpModels.message.toString()}",
-            toastLength: Toast.LENGTH_SHORT,
-            gravity: ToastGravity.CENTER,
-            timeInSecForIosWeb: 1,
-            backgroundColor: Colors.red,
-            textColor: Colors.white,
-            fontSize: 16.0);
+        EasyLoading.showError(signUpModels.message.toString());
       } else {
         Fluttertoast.showToast(
             msg: "${signUpModels.message.toString()}",
