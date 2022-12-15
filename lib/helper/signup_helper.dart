@@ -10,6 +10,7 @@ class SignUpHelper {
       String passWord, String confirmPassWord, registerBy) async {
     String url = Config.serverURl + Config.signupURl;
     var headers = {"Accept": "application/json"};
+    SignUpModel? signUpModels;
     var body = {
       "name": name,
       "email_or_phone": emailOrPhone,
@@ -20,7 +21,7 @@ class SignUpHelper {
     var response =
         await http.post(Uri.parse(url), headers: headers, body: body);
     var json = response.body;
-    var signUpModels = signUpModelFromJson(json);
+    signUpModels = signUpModelFromJson(json);
     if (response.statusCode == 201) {
       if (signUpModels.result == false) {
         Fluttertoast.showToast(msg: "${signUpModels.message.toString()}");
