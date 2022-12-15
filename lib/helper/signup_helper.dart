@@ -25,7 +25,14 @@ class SignUpHelper {
     signUpModels = signUpModelFromJson(json);
     if (response.statusCode == 201) {
       if (signUpModels.result == false) {
-        Fluttertoast.showToast(msg: "${signUpModels.message.toString()}");
+        Fluttertoast.showToast(
+            msg: "${signUpModels.message.toString()}",
+            toastLength: Toast.LENGTH_SHORT,
+            gravity: ToastGravity.CENTER,
+            timeInSecForIosWeb: 1,
+            backgroundColor: Colors.red,
+            textColor: Colors.white,
+            fontSize: 16.0);
       } else {
         Fluttertoast.showToast(
             msg: "${signUpModels.message.toString()}",
