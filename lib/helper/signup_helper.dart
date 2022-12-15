@@ -1,3 +1,6 @@
+import 'dart:convert';
+
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:one_clicks_eats/const/server_config.dart';
 import 'package:one_clicks_eats/models/sign_up_model.dart';
 import 'package:http/http.dart' as http;
@@ -15,12 +18,16 @@ class SignUpHelper {
     };
 
     var response = await http.post(Uri.parse(url), body: body);
+    var json = response.body;
+    var signUpModels = signUpModelFromJson(json);
     if (response.statusCode == 201) {
-      var json = response.body;
-      var signUpModel = signUpModelFromJson(json);
-      if (signUpModel.result== false){
-        
+      if (signUpModels.result == false) {
+        Fluttertoast.showToast(msg: "${signUpModels.message.toString()}");
+      } else {
+        Fluttertoast.showToast(msg: "${signUpModels.message.toString()}");
       }
+    } else {
+      print(body);
     }
   }
 }
