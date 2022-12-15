@@ -9,6 +9,7 @@ class SignUpHelper {
   Future<SignUpModel?> signupRegister(String name, dynamic emailOrPhone,
       String passWord, String confirmPassWord, registerBy) async {
     String url = Config.serverURl + Config.signupURl;
+    var headers = {"Accept": "application/json"};
     var body = {
       "name": name,
       "email_or_phone": emailOrPhone,
@@ -16,8 +17,8 @@ class SignUpHelper {
       "password_confirmation": confirmPassWord,
       "register_by": registerBy,
     };
-
-    var response = await http.post(Uri.parse(url), body: body);
+    var response =
+        await http.post(Uri.parse(url), headers: headers, body: body);
     var json = response.body;
     var signUpModels = signUpModelFromJson(json);
     if (response.statusCode == 201) {

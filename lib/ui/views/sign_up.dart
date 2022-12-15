@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
 import 'package:one_clicks_eats/const/app_imags.dart';
 import 'package:one_clicks_eats/helper/signup_helper.dart';
 import 'package:one_clicks_eats/models/sign_up_model.dart';
@@ -9,12 +10,16 @@ import 'package:one_clicks_eats/ui/widgets/apple_button.dart';
 import 'package:one_clicks_eats/ui/widgets/custom_text_field.dart';
 import 'package:one_clicks_eats/ui/widgets/password_field.dart';
 
+import 'home_page.dart';
+
 class SignUpScreen extends StatelessWidget {
   TextEditingController _nameController = TextEditingController();
   TextEditingController _emailORphoneController = TextEditingController();
   TextEditingController _passController = TextEditingController();
   TextEditingController _confirmPassController = TextEditingController();
   String? registerBy;
+  // RegisterModel ? registerModel;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -52,7 +57,7 @@ class SignUpScreen extends StatelessWidget {
               passwordTextField("Confirm Password", Icons.lock_outline,
                   _confirmPassController),
               SizedBox(height: 35.0.h),
-              AppleButton("Sign Up", () {
+              AppleButton("Sign Up", () async {
                 if (_emailORphoneController.text.contains("@")) {
                   registerBy = "email";
                 } else {
@@ -65,6 +70,7 @@ class SignUpScreen extends StatelessWidget {
                   _confirmPassController.text,
                   registerBy,
                 );
+                Get.to(HomePage());
               }),
               SizedBox(height: 14.0.h),
               AppStyles().richText("Have an Account? ", "Log In", login),
