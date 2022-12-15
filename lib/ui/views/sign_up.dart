@@ -18,7 +18,8 @@ class SignUpScreen extends StatelessWidget {
   TextEditingController _passController = TextEditingController();
   TextEditingController _confirmPassController = TextEditingController();
   String? registerBy;
-  // RegisterModel ? registerModel;
+  
+   
 
   @override
   Widget build(BuildContext context) {
@@ -58,18 +59,7 @@ class SignUpScreen extends StatelessWidget {
                   _confirmPassController),
               SizedBox(height: 35.0.h),
               AppleButton("Sign Up", () async {
-                if (_emailORphoneController.text.contains("@")) {
-                  registerBy = "email";
-                } else {
-                  registerBy = "phone";
-                }
-                SignUpHelper().signupRegister(
-                  _nameController.text,
-                  _emailORphoneController.text,
-                  _passController.text,
-                  _confirmPassController.text,
-                  registerBy,
-                );
+               
                 Get.to(HomePage());
               }),
               SizedBox(height: 14.0.h),

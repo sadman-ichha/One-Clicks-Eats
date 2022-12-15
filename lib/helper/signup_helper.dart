@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:one_clicks_eats/const/server_config.dart';
 import 'package:one_clicks_eats/models/sign_up_model.dart';
@@ -26,7 +27,14 @@ class SignUpHelper {
       if (signUpModels.result == false) {
         Fluttertoast.showToast(msg: "${signUpModels.message.toString()}");
       } else {
-        Fluttertoast.showToast(msg: "${signUpModels.message.toString()}");
+        Fluttertoast.showToast(
+            msg: "${signUpModels.message.toString()}",
+            toastLength: Toast.LENGTH_SHORT,
+            gravity: ToastGravity.CENTER,
+            timeInSecForIosWeb: 1,
+            backgroundColor: Colors.red,
+            textColor: Colors.white,
+            fontSize: 16.0);
       }
     } else {
       print(body);
