@@ -73,7 +73,9 @@ class OTPScreen extends StatelessWidget {
                         child: CircularProgressIndicator(),
                       )
                     : Center(
-                        child: AppleButton("Verify", () {}),
+                        child: AppleButton("Verify", () {
+                          
+                        }),
                       ),
               ),
               SizedBox(height: 16.0.h),
