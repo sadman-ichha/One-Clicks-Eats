@@ -8,8 +8,10 @@ import '../styles/app_style.dart';
 class OTPScreen extends StatelessWidget {
   String? emailOrPhone;
   OTPScreen(this.emailOrPhone);
+ RxBool progrss = false.obs;
 
-  RxBool progrss = false.obs;
+
+
 
   @override
   Widget build(BuildContext context) {
@@ -74,7 +76,7 @@ class OTPScreen extends StatelessWidget {
                       )
                     : Center(
                         child: AppleButton("Verify", () {
-                          
+
                         }),
                       ),
               ),
