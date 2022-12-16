@@ -18,7 +18,8 @@ class OTPHelper {
       otpModel = otpModelFromJson(response.body);
       Fluttertoast.showToast(msg: otpModel.message.toString());
       print("Success __${response.body}");
-      
+    } else {
+      throw Fluttertoast.showToast(msg: otpModel!.message.toString());
     }
     return null;
   }
