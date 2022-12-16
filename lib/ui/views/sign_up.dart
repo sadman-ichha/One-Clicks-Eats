@@ -9,15 +9,13 @@ import 'package:one_clicks_eats/ui/widgets/apple_button.dart';
 import 'package:one_clicks_eats/ui/widgets/custom_text_field.dart';
 import 'package:one_clicks_eats/ui/widgets/password_field.dart';
 
-import 'home_page.dart';
-
 class SignUpScreen extends StatelessWidget {
   TextEditingController _nameController = TextEditingController();
   TextEditingController _emailORphoneController = TextEditingController();
   TextEditingController _passController = TextEditingController();
   TextEditingController _confirmPassController = TextEditingController();
   String? registerBy;
-  RxBool loader = false.obs;
+  RxBool progress = false.obs;
 
   apiPostRegister() async {
     if (_emailORphoneController.text.contains("@")) {
@@ -72,7 +70,6 @@ class SignUpScreen extends StatelessWidget {
                   _confirmPassController),
               SizedBox(height: 35.0.h),
               AppleButton("Sign Up", () {
-               apiPostRegister();
                 Get.toNamed(otp);
               }),
               SizedBox(height: 14.0.h),
