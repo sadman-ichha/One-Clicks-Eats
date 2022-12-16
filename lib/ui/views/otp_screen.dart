@@ -5,7 +5,12 @@ import 'package:sms_autofill/sms_autofill.dart';
 import '../styles/app_style.dart';
 
 class OTPScreen extends StatelessWidget {
-  const OTPScreen({super.key});
+
+  String? emailOrPhone;
+  
+   OTPScreen({this.emailOrPhone});
+   
+  
 
   @override
   Widget build(BuildContext context) {
@@ -32,7 +37,7 @@ class OTPScreen extends StatelessWidget {
             Padding(
               padding: EdgeInsets.only(left: 24.0.w, right: 24.0.w),
               child: Text(
-                "Please check your www.uihut@gmail.com to see the verification code",
+                "Please check your $ to see the verification code",
                 textAlign: TextAlign.center,
                 style: AppStyles.mySubTitleTextStyle,
               ),
