@@ -29,8 +29,8 @@ List<GetPage> getPages = [
     name: login,
     page: () =>  LoginScreen(),
   ),
-   GetPage(
-    name: otp,
-    page: () =>  OTPScreen(),
-  ),
+  //  GetPage(
+  //   name: otp,
+  //   page: () =>  OTPScreen(),
+  // ),
 ];

@@ -5,6 +5,7 @@ import 'package:one_clicks_eats/const/app_imags.dart';
 import 'package:one_clicks_eats/helper/signup_helper.dart';
 import 'package:one_clicks_eats/ui/routes/route.dart';
 import 'package:one_clicks_eats/ui/styles/app_style.dart';
+import 'package:one_clicks_eats/ui/views/otp_screen.dart';
 import 'package:one_clicks_eats/ui/widgets/apple_button.dart';
 import 'package:one_clicks_eats/ui/widgets/custom_text_field.dart';
 import 'package:one_clicks_eats/ui/widgets/password_field.dart';
@@ -70,7 +71,8 @@ class SignUpScreen extends StatelessWidget {
                   _confirmPassController),
               SizedBox(height: 35.0.h),
               AppleButton("Sign Up", () {
-                Get.toNamed(otp);
+                apiPostRegister();
+                Get.to(OTPScreen(_emailORphoneController.text));
               }),
               SizedBox(height: 14.0.h),
               AppStyles().richText("Have an Account? ", "Log In", login),
