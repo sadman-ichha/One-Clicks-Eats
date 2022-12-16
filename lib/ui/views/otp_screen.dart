@@ -54,6 +54,7 @@ class OTPScreen extends StatelessWidget {
                 padding: EdgeInsets.only(left: 24.0.w, right: 24.0.w),
                 child: PinFieldAutoFill(
                   codeLength: 6,
+                  
                   decoration: BoxLooseDecoration(
                       strokeColorBuilder: FixedColorBuilder(Colors.black)),
                 ),
