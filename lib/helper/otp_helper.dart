@@ -7,5 +7,6 @@ class OTPHelper {
   Future<OtpModel?> otpVerification() async {
     String url = Config.serverURl + Config.confirmCodeURL;
     http.Response response =await http.post(Uri.parse(url));
+    
   }
 }
