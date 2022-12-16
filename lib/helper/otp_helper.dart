@@ -17,6 +17,8 @@ class OTPHelper {
     if (response.statusCode == 200) {
       otpModel = otpModelFromJson(response.body);
       Fluttertoast.showToast(msg: otpModel.message.toString());
+    }else {
+      
     }
     return null;
   }
