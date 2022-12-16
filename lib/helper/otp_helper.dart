@@ -21,6 +21,6 @@ class OTPHelper {
     } else {
       throw Fluttertoast.showToast(msg: otpModel!.message.toString());
     }
-    return null;
+    return otpModel;
   }
 }
