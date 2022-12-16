@@ -6,7 +6,6 @@ import '../styles/app_style.dart';
 
 class OTPScreen extends StatelessWidget {
   String? emailOrPhone;
-
   OTPScreen(this.emailOrPhone);
 
   @override
