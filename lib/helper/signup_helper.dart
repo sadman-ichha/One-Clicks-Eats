@@ -22,6 +22,7 @@ class SignUpHelper {
           await http.post(Uri.parse(url), headers: headers, body: body);
 
       signUpModels = signUpModelFromJson(response.body);
+      print(body);
       if (response.statusCode == 201) {
         if (signUpModels.result == false) {
           Fluttertoast.showToast(
