@@ -4,9 +4,13 @@ import 'package:one_clicks_eats/const/server_config.dart';
 import 'package:one_clicks_eats/models/otp_model.dart';
 
 class OTPHelper {
-  Future<OtpModel?> otpVerification() async {
+  Future<OtpModel?> otpVerification(userID,verificationCode) async {
     String url = Config.serverURl + Config.confirmCodeURL;
-    http.Response response =await http.post(Uri.parse(url));
+    Map body= {
+      "user_id" :userID,
+      "verification_code" : verificationCode
+    };
+    http.Response response =await http.post(Uri.parse(url),body: );
     
   }
 }
