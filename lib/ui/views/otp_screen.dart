@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
 import 'package:one_clicks_eats/ui/widgets/apple_button.dart';
 import 'package:sms_autofill/sms_autofill.dart';
 import '../styles/app_style.dart';
@@ -7,6 +8,8 @@ import '../styles/app_style.dart';
 class OTPScreen extends StatelessWidget {
   String? emailOrPhone;
   OTPScreen(this.emailOrPhone);
+
+  RxBool progrss = false.obs;
 
   @override
   Widget build(BuildContext context) {
@@ -64,7 +67,15 @@ class OTPScreen extends StatelessWidget {
                 ),
               ),
               SizedBox(height: 37.0.h),
-              Center(child: AppleButton("Verify", () {})),
+              Obx(
+                () => progrss.value
+                    ? Center(
+                        child: CircularProgressIndicator(),
+                      )
+                    : Center(
+                        child: AppleButton("Verify", () {}),
+                      ),
+              ),
               SizedBox(height: 16.0.h),
               Padding(
                 padding: EdgeInsets.only(left: 30.0.w, right: 30.0.w),
