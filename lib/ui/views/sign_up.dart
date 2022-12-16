@@ -3,7 +3,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:one_clicks_eats/const/app_imags.dart';
 import 'package:one_clicks_eats/helper/signup_helper.dart';
-import 'package:one_clicks_eats/models/sign_up_model.dart';
 import 'package:one_clicks_eats/ui/routes/route.dart';
 import 'package:one_clicks_eats/ui/styles/app_style.dart';
 import 'package:one_clicks_eats/ui/widgets/apple_button.dart';
@@ -73,7 +72,7 @@ class SignUpScreen extends StatelessWidget {
                   _confirmPassController),
               SizedBox(height: 35.0.h),
               AppleButton("Sign Up", () {
-                //apiPostRegister();
+               apiPostRegister();
                 Get.toNamed(otp);
               }),
               SizedBox(height: 14.0.h),

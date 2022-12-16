@@ -13,14 +13,14 @@ class SignUpHelper {
     var headers = {"Accept": "application/json"};
     SignUpModel? signUpModels;
 
-    var body = {
+    Map body = {
       "name": name,
       "email_or_phone": emailOrPhone,
       "password": passWord,
       "password_confirmation": confirmPassWord,
       "register_by": registerBy,
     };
-    var response =
+    http.Response response =
         await http.post(Uri.parse(url), headers: headers, body: body);
     var json = response.body;
     signUpModels = signUpModelFromJson(json);
