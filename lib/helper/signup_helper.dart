@@ -4,8 +4,14 @@ import 'package:one_clicks_eats/models/sign_up_model.dart';
 import 'package:http/http.dart' as http;
 
 class SignUpHelper {
-  Future<SignUpModel?> signupRegister(String name, dynamic emailOrPhone,
-      String passWord, String confirmPassWord, registerBy) async {
+  int? userID;
+  Future<SignUpModel?> signupRegister(
+    String name,
+    dynamic emailOrPhone,
+    String passWord,
+    String confirmPassWord,
+    registerBy,
+  ) async {
     try {
       String url = Config.serverURl + Config.signupURl;
       var headers = {"Accept": "application/json"};
@@ -21,22 +27,22 @@ class SignUpHelper {
       http.Response response =
           await http.post(Uri.parse(url), headers: headers, body: body);
 
-      
       print(body);
+      signUpModels = signUpModelFromJson(response.body);
       if (response.statusCode == 201) {
-        signUpModels = signUpModelFromJson(response.body);
         if (signUpModels.result == false) {
           Fluttertoast.showToast(
             msg: "${signUpModels.message.toString()}",
           );
         } else {
+          userID = signUpModels.userId!;
           Fluttertoast.showToast(
             msg: "${signUpModels.message.toString()}",
           );
         }
       } else {
         throw Fluttertoast.showToast(
-          msg: signUpModels!.message.toString(),
+          msg: signUpModels.message.toString(),
         );
       }
       return signUpModels;
