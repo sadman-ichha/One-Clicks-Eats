@@ -33,7 +33,7 @@ class OTPScreen extends StatelessWidget {
               Center(
                 child: Padding(
                   padding: EdgeInsets.only(left: 24.0.w, right: 24.0.w),
-                  child: Text("OTP Verification ",
+                  child: Text("OTP Verification",
                       style: TextStyle(
                           fontSize: 24.0.sp,
                           fontWeight: FontWeight.w700,
