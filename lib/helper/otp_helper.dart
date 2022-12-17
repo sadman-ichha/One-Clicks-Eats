@@ -3,7 +3,6 @@ import 'package:fluttertoast/fluttertoast.dart';
 import 'package:http/http.dart' as http;
 import 'package:one_clicks_eats/const/server_config.dart';
 
-
 class OTPHelper {
   Future otpVerification(userID, verificationCode) async {
     try {

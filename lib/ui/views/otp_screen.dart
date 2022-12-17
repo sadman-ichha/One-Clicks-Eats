@@ -76,17 +76,9 @@ class OTPScreen extends StatelessWidget {
                 ),
               ),
               SizedBox(height: 37.0.h),
-              Obx(
-                () => progrss.value
-                    ? Center(
-                        child: CircularProgressIndicator(),
-                      )
-                    : Center(
-                        child: AppleButton("Verify", () {
-                          apiPostConfirmCode();
-                        }),
-                      ),
-              ),
+              AppleButton("Verify", () {
+                apiPostConfirmCode();
+              }),
               SizedBox(height: 16.0.h),
               Padding(
                 padding: EdgeInsets.only(left: 30.0.w, right: 30.0.w),
