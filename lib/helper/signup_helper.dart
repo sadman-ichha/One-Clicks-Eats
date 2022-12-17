@@ -37,13 +37,15 @@ class SignUpHelper {
           Fluttertoast.showToast(
             msg: "${signUpModels.message.toString()}",
           );
-          Get.to(OTPScreen(
-              emailOrPhone,userID));
         } else {
+          print("USERIDD__${userID}");
+          print("11111${response.body}");
           userID = signUpModels.userId!;
           Fluttertoast.showToast(
             msg: "${signUpModels.message.toString()}",
           );
+          Get.to(OTPScreen(
+              emailOrPhone,userID));
         }
       } else {
         throw Fluttertoast.showToast(
