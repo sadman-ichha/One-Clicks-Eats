@@ -13,7 +13,7 @@ class OTPScreen extends StatelessWidget {
   RxBool progrss = false.obs;
   int? userID;
   String? verificationCode;
-
+  String _currentCode = "";
   apiPostConfirmCode() async {
     await OTPHelper().otpVerification(userID, verificationCode);
     Get.to(HomePage());
@@ -64,6 +64,7 @@ class OTPScreen extends StatelessWidget {
                 padding: EdgeInsets.only(left: 24.0.w, right: 24.0.w),
                 child: PinFieldAutoFill(
                   codeLength: 6,
+                  currentCode: _currentCode,
                   onCodeSubmitted: (code) {},
                   onCodeChanged: (code) {
                     verificationCode = code;
