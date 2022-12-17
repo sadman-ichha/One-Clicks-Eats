@@ -1,7 +1,10 @@
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:get/get.dart';
 import 'package:one_clicks_eats/const/server_config.dart';
 import 'package:one_clicks_eats/models/sign_up_model.dart';
 import 'package:http/http.dart' as http;
+
+import '../ui/views/otp_screen.dart';
 
 class SignUpHelper {
   int? userID;
@@ -34,6 +37,8 @@ class SignUpHelper {
           Fluttertoast.showToast(
             msg: "${signUpModels.message.toString()}",
           );
+          Get.to(OTPScreen(
+              emailOrPhone,userID));
         } else {
           userID = signUpModels.userId!;
           Fluttertoast.showToast(
