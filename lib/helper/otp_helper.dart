@@ -1,7 +1,10 @@
 import 'dart:convert';
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:get/get.dart';
 import 'package:http/http.dart' as http;
 import 'package:one_clicks_eats/const/server_config.dart';
+
+import '../ui/views/home_page.dart';
 
 class OTPHelper {
   Future otpVerification(userID, verificationCode) async {
@@ -19,6 +22,7 @@ class OTPHelper {
         var otpModel = jsonDecode(response.body);
         Fluttertoast.showToast(msg: otpModel["message"]);
         print("Success __${response.body}");
+        Get.to(HomePage());
       } else {
         print("Error");
       }

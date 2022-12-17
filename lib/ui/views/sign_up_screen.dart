@@ -73,9 +73,6 @@ class SignUpScreen extends StatelessWidget {
               SizedBox(height: 35.0.h),
               AppleButton("Sign Up", () {
                 apiPostRegister();
-
-                Get.to(OTPScreen(
-                    _emailORphoneController.text, SignUpHelper().userID));
               }),
               SizedBox(height: 14.0.h),
               AppStyles().richText("Have an Account? ", "Log In", login),

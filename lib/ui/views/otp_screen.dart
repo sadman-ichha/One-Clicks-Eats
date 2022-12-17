@@ -9,19 +9,19 @@ import '../styles/app_style.dart';
 
 class OTPScreen extends StatelessWidget {
   String? emailOrPhone;
-  OTPScreen(this.emailOrPhone,this.userID);
+  OTPScreen(this.emailOrPhone, this.userID);
   RxBool progrss = false.obs;
   int? userID;
   String? verificationCode;
   String _currentCode = "";
 
   apiPostConfirmCode() async {
-    await OTPHelper().otpVerification(userID, verificationCode);
-    Get.to(HomePage());
+    await OTPHelper().otpVerification(userID.toString(), verificationCode);
   }
 
   @override
   Widget build(BuildContext context) {
+     print("ID__${userID}");
     return Scaffold(
         appBar: AppBar(
           elevation: 0,
@@ -80,7 +80,6 @@ class OTPScreen extends StatelessWidget {
               SizedBox(height: 37.0.h),
               AppleButton("Verify", () {
                 apiPostConfirmCode();
-                userID;
               }),
               SizedBox(height: 16.0.h),
               Padding(
