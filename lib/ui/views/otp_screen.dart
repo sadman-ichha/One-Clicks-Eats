@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:one_clicks_eats/helper/otp_helper.dart';
+import 'package:one_clicks_eats/ui/views/home_page.dart';
 import 'package:one_clicks_eats/ui/widgets/apple_button.dart';
 import 'package:sms_autofill/sms_autofill.dart';
 import '../styles/app_style.dart';
@@ -8,10 +10,13 @@ import '../styles/app_style.dart';
 class OTPScreen extends StatelessWidget {
   String? emailOrPhone;
   OTPScreen(this.emailOrPhone);
- RxBool progrss = false.obs;
-
-
-
+  RxBool progrss = false.obs;
+  int? userID;
+  String? verificationCode;
+  apiPostConfirmCode() async {
+    await OTPHelper().otpVerification(userID, verificationCode);
+    Get.to(HomePage());
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -28,7 +33,7 @@ class OTPScreen extends StatelessWidget {
               Center(
                 child: Padding(
                   padding: EdgeInsets.only(left: 24.0.w, right: 24.0.w),
-                  child: Text("OTP Verification",
+                  child: Text("OTP Verification ",
                       style: TextStyle(
                           fontSize: 24.0.sp,
                           fontWeight: FontWeight.w700,
@@ -60,6 +65,7 @@ class OTPScreen extends StatelessWidget {
                   codeLength: 6,
                   onCodeSubmitted: (code) {},
                   onCodeChanged: (code) {
+                    verificationCode = code;
                     if (code!.length == 6) {
                       FocusScope.of(context).requestFocus(FocusNode());
                     }
@@ -76,7 +82,7 @@ class OTPScreen extends StatelessWidget {
                       )
                     : Center(
                         child: AppleButton("Verify", () {
-
+                          apiPostConfirmCode();
                         }),
                       ),
               ),
