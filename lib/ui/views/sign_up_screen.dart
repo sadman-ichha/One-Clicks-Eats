@@ -59,10 +59,13 @@ class SignUpScreen extends StatelessWidget {
                   style: AppStyles.mySubTitleTextStyle),
               SizedBox(height: 35.0.h),
               customTextField(
-                  "Name", Icons.person, _nameController, TextInputType.name),
+                  "Name", Icons.person, _nameController, TextInputType.name,
+                  (val) {
+                if (val) return "this field can't be empty";
+              }),
               SizedBox(height: 8.0.h),
-              customTextField("Email or Phone", Icons.perm_phone_msg_rounded,
-                  _emailORphoneController, TextInputType.text),
+              // customTextField("Email or Phone", Icons.perm_phone_msg_rounded,
+              //     _emailORphoneController, TextInputType.text),
               SizedBox(height: 8.0.h),
               passwordTextField(
                   "Password", Icons.lock_outline, _passController),

@@ -36,8 +36,8 @@ class LoginScreen extends StatelessWidget {
               Text("Please login to continue our app",
                   style: AppStyles.mySubTitleTextStyle),
               SizedBox(height: 35.0.h),
-              customTextField("Email or Phone", Icons.perm_phone_msg_rounded,
-                  _emailORphoneController, TextInputType.text),
+              // customTextField("Email or Phone", Icons.perm_phone_msg_rounded,
+              //     _emailORphoneController, TextInputType.text),
               SizedBox(height: 8.0.h),
               passwordTextField(
                   "Password", Icons.lock_outline, _passController),
