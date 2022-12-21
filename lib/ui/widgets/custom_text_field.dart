@@ -3,7 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:one_clicks_eats/const/app_colors.dart';
 
 Widget customTextField(String hintsText, IconData icon,
-    TextEditingController controller, TextInputType keyboardType ,Function validator) {
+    TextEditingController controller, TextInputType keyboardType , validator) {
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
   return Form(
     key: formKey,
@@ -24,7 +24,7 @@ Widget customTextField(String hintsText, IconData icon,
             child: TextFormField(
               controller: controller,
               keyboardType: keyboardType,
-              validator:validator(),
+              validator:validator,
               decoration: InputDecoration(
                   prefixIcon: Icon(icon, color: AppColors.appleColor),
                   border: OutlineInputBorder()),

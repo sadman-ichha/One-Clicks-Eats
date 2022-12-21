@@ -19,6 +19,7 @@ class SignUpScreen extends StatelessWidget {
   int? userID;
 
   apiPostRegister() async {
+  
     if (_emailORphoneController.text.contains("@")) {
       registerBy = "email";
     } else {
@@ -31,6 +32,7 @@ class SignUpScreen extends StatelessWidget {
       _confirmPassController.text,
       registerBy,
     );
+
   }
 
   @override
