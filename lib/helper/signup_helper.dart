@@ -3,7 +3,6 @@ import 'package:get/get.dart';
 import 'package:one_clicks_eats/const/server_config.dart';
 import 'package:one_clicks_eats/models/sign_up_model.dart';
 import 'package:http/http.dart' as http;
-
 import '../ui/views/otp_screen.dart';
 
 class SignUpHelper {
@@ -38,13 +37,13 @@ class SignUpHelper {
             msg: "${signUpModels.message.toString()}",
           );
         } else {
-          print("USERIDD__${userID}");
+          print("USERIDD__${userID} ");
           print("11111${response.body}");
           userID = signUpModels.userId!;
           Fluttertoast.showToast(
             msg: "${signUpModels.message.toString()}",
           );
-          Get.to(OTPScreen(emailOrPhone, userID));
+          Get.offAll(OTPScreen(emailOrPhone, userID));
         }
       } else {
         throw Fluttertoast.showToast(
