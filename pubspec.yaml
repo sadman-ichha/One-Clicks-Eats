@@ -39,7 +39,6 @@ dependencies:
   dots_indicator: ^2.1.0
   http: ^0.13.5
   fluttertoast: ^8.1.2
-  flutter_easyloading: ^3.0.5
   sms_autofill: ^2.2.0
 
 

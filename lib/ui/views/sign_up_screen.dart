@@ -5,7 +5,6 @@ import 'package:one_clicks_eats/const/app_imags.dart';
 import 'package:one_clicks_eats/helper/signup_helper.dart';
 import 'package:one_clicks_eats/ui/routes/route.dart';
 import 'package:one_clicks_eats/ui/styles/app_style.dart';
-import 'package:one_clicks_eats/ui/views/otp_screen.dart';
 import 'package:one_clicks_eats/ui/widgets/apple_button.dart';
 import 'package:one_clicks_eats/ui/widgets/custom_text_field.dart';
 import 'package:one_clicks_eats/ui/widgets/password_field.dart';
