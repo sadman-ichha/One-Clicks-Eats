@@ -3,18 +3,18 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../const/app_colors.dart';
 
 class customTextfield extends StatelessWidget {
-  String? hintsText;
-  TextEditingController? controller;
-  TextInputType? keyboardType;
-  IconData? icon;
-  FormFieldValidator<String>? validate;
+  String hintsText;
+  TextEditingController controller;
+  TextInputType keyboardType;
+  IconData icon;
+  FormFieldValidator<String> validate;
 
   customTextfield({
-    this.hintsText,
-    this.controller,
-    this.keyboardType,
-    this.icon,
-    this.validate,
+    required this.hintsText,
+    required this.controller,
+    required this.keyboardType,
+    required this.icon,
+    required this.validate,
   });
 
   @override
