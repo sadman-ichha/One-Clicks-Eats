@@ -24,6 +24,7 @@ class SignUpScreen extends StatelessWidget {
     } else {
       registerBy = "phone";
     }
+
     await SignUpHelper().signupRegister(
       _nameController.text,
       _emailORphoneController.text,
@@ -81,7 +82,9 @@ class SignUpScreen extends StatelessWidget {
                     _confirmPassController),
                 SizedBox(height: 35.0.h),
                 AppleButton("Sign Up", () {
-                  apiPostRegister();
+                  if (formKey.currentState!.validate()) {
+                    apiPostRegister();
+                  }
                 }),
                 SizedBox(height: 14.0.h),
                 AppStyles().richText("Have an Account? ", "Log In", login),
