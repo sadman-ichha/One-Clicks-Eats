@@ -81,11 +81,8 @@ class SignUpScreen extends StatelessWidget {
                     validate: (val) {
                       if (val!.isEmpty) {
                         return "This field is required";
-                      } else if (val.contains("@")) {
-                        if (val.isEmail ==
-                            RegExp(r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+")
-                                .hasMatch(val));
                       }
+                      return null;
                     }),
                 SizedBox(height: 8.0.h),
                 passwordTextField(
