@@ -6,7 +6,8 @@ import 'package:one_clicks_eats/const/app_colors.dart';
 RxBool isVisible = true.obs;
 
 Widget passwordTextField(
-    String hintsText, IconData icon, TextEditingController controller) {
+    String hintsText, IconData icon, TextEditingController controller,
+    {FormFieldValidator<String>? validate}) {
   return Column(
     crossAxisAlignment: CrossAxisAlignment.start,
     children: [
@@ -24,6 +25,7 @@ Widget passwordTextField(
           child: Obx((() => TextFormField(
                 controller: controller,
                 obscureText: isVisible.value,
+                validator: validate,
                 decoration: InputDecoration(
                   prefixIcon: Icon(icon, color: AppColors.appleColor),
                   border: OutlineInputBorder(),

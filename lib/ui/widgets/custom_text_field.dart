@@ -23,7 +23,7 @@ class customTextfield extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
-          hintsText!,
+          hintsText,
           style: TextStyle(
               fontSize: 14.0.sp,
               fontWeight: FontWeight.w600,

@@ -70,6 +70,7 @@ class SignUpScreen extends StatelessWidget {
                     if (val == null || val.isEmpty) {
                       return "This field is required";
                     }
+                    return null;
                   },
                 ),
                 SizedBox(height: 8.0.h),
@@ -86,10 +87,32 @@ class SignUpScreen extends StatelessWidget {
                     }),
                 SizedBox(height: 8.0.h),
                 passwordTextField(
-                    "Password", Icons.lock_outline, _passController),
+                  "Password",
+                  Icons.lock_outline,
+                  _passController,
+                  validate: (val) {
+                    if (val!.isEmpty) {
+                      return "This field is required";
+                    } else if (val.length < 6) {
+                      return "Password must be 6 characters";
+                    }
+                    return null;
+                  },
+                ),
                 SizedBox(height: 8.0.h),
-                passwordTextField("Confirm Password", Icons.lock_outline,
-                    _confirmPassController),
+                passwordTextField(
+                  "Confirm Password",
+                  Icons.lock_outline,
+                  _confirmPassController,
+                  validate: (val) {
+                    if (val!.isEmpty) {
+                      return "This field is required";
+                    } else if (val.length < 6) {
+                      return "Password must be 6 characters";
+                    }
+                    return null;
+                  },
+                ),
                 SizedBox(height: 35.0.h),
                 AppleButton("Sign Up", () {
                   if (formKey.currentState!.validate()) {
