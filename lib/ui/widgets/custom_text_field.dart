@@ -1,23 +1,14 @@
-import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:one_clicks_eats/const/app_colors.dart';
 
-Widget customTextField(
-    {String? hintsText,
-    IconData? icon,
-    TextEditingController? controller,
-    TextInputType? keyboardType,
-    
- 
-   validate,
- 
-  })
-    
-   {
-  final GlobalKey<FormState> formKey = GlobalKey<FormState>();
-  return Form(
-    key: formKey,
-    child: Column(
+
+
+import 'package:flutter/material.dart';
+
+class customTextfield extends StatelessWidget {
+  const customTextfield({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
@@ -40,6 +31,6 @@ Widget customTextField(
                   border: OutlineInputBorder()),
             )),
       ],
-    ),
-  );
+    ),;
+  }
 }
