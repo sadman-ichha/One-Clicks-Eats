@@ -19,7 +19,6 @@ class SignUpScreen extends StatelessWidget {
   int? userID;
 
   apiPostRegister() async {
-  
     if (_emailORphoneController.text.contains("@")) {
       registerBy = "email";
     } else {
@@ -32,7 +31,6 @@ class SignUpScreen extends StatelessWidget {
       _confirmPassController.text,
       registerBy,
     );
-
   }
 
   @override
@@ -43,6 +41,7 @@ class SignUpScreen extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
+              TextField(),
               SizedBox(height: 20.0.h),
               Center(
                 child: Image(
@@ -61,10 +60,11 @@ class SignUpScreen extends StatelessWidget {
                   style: AppStyles.mySubTitleTextStyle),
               SizedBox(height: 35.0.h),
               customTextField(
-                  "Name", Icons.person, _nameController, TextInputType.name,
-                  (val) {
-                if (val) return "this field can't be empty";
-              }),
+                hintsText: "Name",
+                icon: Icons.person,
+                controller: _nameController,
+                keyboardType: TextInputType.name,
+              ),
               SizedBox(height: 8.0.h),
               // customTextField("Email or Phone", Icons.perm_phone_msg_rounded,
               //     _emailORphoneController, TextInputType.text),
