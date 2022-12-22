@@ -69,11 +69,12 @@ class SignUpScreen extends StatelessWidget {
                   validate: (val) {
                     if (val == null || val.isEmpty)
                       return "This field is required";
+                    
                   },
                 ),
                 SizedBox(height: 8.0.h),
-                // customTextField("Email or Phone", Icons.perm_phone_msg_rounded,
-                //     _emailORphoneController, TextInputType.text),
+                customTextField("Email or Phone", Icons.perm_phone_msg_rounded,
+                    _emailORphoneController, TextInputType.text),
                 SizedBox(height: 8.0.h),
                 passwordTextField(
                     "Password", Icons.lock_outline, _passController),
