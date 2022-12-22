@@ -15,8 +15,8 @@ class SignUpScreen extends StatelessWidget {
   TextEditingController _passController = TextEditingController();
   TextEditingController _confirmPassController = TextEditingController();
   String? registerBy;
-  RxBool progress = false.obs;
   int? userID;
+  GlobalKey<FormState> formKey = GlobalKey<FormState>();
 
   apiPostRegister() async {
     if (_emailORphoneController.text.contains("@")) {
@@ -38,47 +38,55 @@ class SignUpScreen extends StatelessWidget {
     return Scaffold(
       body: SafeArea(
         child: SingleChildScrollView(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              TextField(),
-              SizedBox(height: 20.0.h),
-              Center(
-                child: Image(
-                  height: 94.0.h,
-                  width: 86.0.w,
-                  image: AssetImage(AppImages.splashLogo),
+          child: Form(
+            key: formKey,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                SizedBox(height: 20.0.h),
+                Center(
+                  child: Image(
+                    height: 94.0.h,
+                    width: 86.0.w,
+                    image: AssetImage(AppImages.splashLogo),
+                  ),
                 ),
-              ),
-              SizedBox(height: 16.0.h),
-              Text(
-                "SignUp Now !",
-                style: AppStyles.myTitleTextStyle,
-              ),
-              SizedBox(height: 5.0.h),
-              Text("Please signup to account our app",
-                  style: AppStyles.mySubTitleTextStyle),
-              SizedBox(height: 35.0.h),
-              customTextfield( hintsText: "Name",
-                icon: Icons.person,
-                controller: _nameController,
-                keyboardType: TextInputType.name, validate),
-              SizedBox(height: 8.0.h),
-              // customTextField("Email or Phone", Icons.perm_phone_msg_rounded,
-              //     _emailORphoneController, TextInputType.text),
-              SizedBox(height: 8.0.h),
-              passwordTextField(
-                  "Password", Icons.lock_outline, _passController),
-              SizedBox(height: 8.0.h),
-              passwordTextField("Confirm Password", Icons.lock_outline,
-                  _confirmPassController),
-              SizedBox(height: 35.0.h),
-              AppleButton("Sign Up", () {
-                apiPostRegister();
-              }),
-              SizedBox(height: 14.0.h),
-              AppStyles().richText("Have an Account? ", "Log In", login),
-            ],
+                SizedBox(height: 16.0.h),
+                Text(
+                  "SignUp Now !",
+                  style: AppStyles.myTitleTextStyle,
+                ),
+                SizedBox(height: 5.0.h),
+                Text("Please signup to account our app",
+                    style: AppStyles.mySubTitleTextStyle),
+                SizedBox(height: 35.0.h),
+                customTextfield(
+                  hintsText: "Name",
+                  icon: Icons.person,
+                  controller: _nameController,
+                  keyboardType: TextInputType.name,
+                  validate: (val) {
+                    if (val == null || val.isEmpty)
+                      return "This field is required";
+                  },
+                ),
+                SizedBox(height: 8.0.h),
+                // customTextField("Email or Phone", Icons.perm_phone_msg_rounded,
+                //     _emailORphoneController, TextInputType.text),
+                SizedBox(height: 8.0.h),
+                passwordTextField(
+                    "Password", Icons.lock_outline, _passController),
+                SizedBox(height: 8.0.h),
+                passwordTextField("Confirm Password", Icons.lock_outline,
+                    _confirmPassController),
+                SizedBox(height: 35.0.h),
+                AppleButton("Sign Up", () {
+                  apiPostRegister();
+                }),
+                SizedBox(height: 14.0.h),
+                AppStyles().richText("Have an Account? ", "Log In", login),
+              ],
+            ),
           ),
         ),
       ),

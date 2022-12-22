@@ -7,7 +7,7 @@ class customTextfield extends StatelessWidget {
   TextEditingController? controller;
   TextInputType? keyboardType;
   IconData? icon;
-  FormFieldValidator? validate;
+  FormFieldValidator<String>? validate;
 
   customTextfield({
     this.hintsText,
