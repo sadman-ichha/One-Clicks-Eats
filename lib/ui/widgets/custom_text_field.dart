@@ -1,10 +1,21 @@
-
-
-
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import '../../const/app_colors.dart';
 
 class customTextfield extends StatelessWidget {
-  const customTextfield({super.key});
+  String? hintsText;
+  TextEditingController? controller;
+  TextInputType? keyboardType;
+  IconData? icon;
+  FormFieldValidator? validate;
+
+  customTextfield({
+    this.hintsText,
+    this.controller,
+    this.keyboardType,
+    this.icon,
+    this.validate,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -31,6 +42,6 @@ class customTextfield extends StatelessWidget {
                   border: OutlineInputBorder()),
             )),
       ],
-    ),;
+    );
   }
 }
