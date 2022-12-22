@@ -78,7 +78,9 @@ class SignUpScreen extends StatelessWidget {
                     keyboardType: TextInputType.text,
                     icon: Icons.perm_phone_msg_rounded,
                     validate: (val) {
-                      if (val!.isEmpty) return "This field is required";
+                      if (val!.isEmpty) {
+                        return "This field is required";
+                      }
                     }),
                 SizedBox(height: 8.0.h),
                 passwordTextField(
