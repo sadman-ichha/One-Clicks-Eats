@@ -67,8 +67,9 @@ class SignUpScreen extends StatelessWidget {
                   controller: _nameController,
                   keyboardType: TextInputType.name,
                   validate: (val) {
-                    if (val == null || val.isEmpty)
+                    if (val == null || val.isEmpty) {
                       return "This field is required";
+                    }
                   },
                 ),
                 SizedBox(height: 8.0.h),
@@ -80,6 +81,10 @@ class SignUpScreen extends StatelessWidget {
                     validate: (val) {
                       if (val!.isEmpty) {
                         return "This field is required";
+                      } else if (val.contains("@")) {
+                        if (val.isEmail ==
+                            RegExp(r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+")
+                                .hasMatch(val));
                       }
                     }),
                 SizedBox(height: 8.0.h),
