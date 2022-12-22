@@ -38,8 +38,9 @@ class customTextfield extends StatelessWidget {
               keyboardType: keyboardType,
               validator: validate,
               decoration: InputDecoration(
-                  prefixIcon: Icon(icon, color: AppColors.appleColor),
-                  border: OutlineInputBorder()),
+                prefixIcon: Icon(icon, color: AppColors.appleColor),
+                border: OutlineInputBorder(),
+              ),
             )),
       ],
     );
