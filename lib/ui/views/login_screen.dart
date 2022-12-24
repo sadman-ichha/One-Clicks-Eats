@@ -69,7 +69,9 @@ class LoginScreen extends StatelessWidget {
                 }),
                 SizedBox(height: 35.0.h),
                 AppleButton("Log In", () {
-                  if (formKey.currentState!.validate()) {}
+                  if (formKey.currentState!.validate()) {
+                    loginNow();
+                  }
                   ;
                 }),
                 SizedBox(height: 14.0.h),
