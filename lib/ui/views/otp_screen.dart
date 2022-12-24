@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:one_clicks_eats/helper/otp_helper.dart';
-import 'package:one_clicks_eats/ui/views/home_page.dart';
 import 'package:one_clicks_eats/ui/widgets/apple_button.dart';
 import 'package:sms_autofill/sms_autofill.dart';
 import '../styles/app_style.dart';

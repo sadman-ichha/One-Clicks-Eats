@@ -43,7 +43,7 @@ class SignUpHelper {
           Fluttertoast.showToast(
             msg: "${signUpModels.message.toString()}",
           );
-          Get.offAll(OTPScreen(emailOrPhone, userID));
+          Get.offAll(()=> OTPScreen(emailOrPhone, userID));
         }
       } else {
         throw Fluttertoast.showToast(
