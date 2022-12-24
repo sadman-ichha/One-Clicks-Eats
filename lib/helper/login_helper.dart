@@ -9,27 +9,33 @@ import 'package:one_clicks_eats/ui/views/home_page.dart';
 
 class LogInHelper {
   Future<LoginModel?> login(dynamic emailORPhone, String password) async {
-    String url = Config.serverURl + Config.loginURL;
-    var headers = {"Accept": "application/json"};
-    LoginModel? jsonData;
+    try {
+      String url = Config.serverURl + Config.loginURL;
+      var headers = {"Accept": "application/json"};
+      LoginModel? jsonData;
 
-    Map body = {
-      "email": emailORPhone,
-      "password": password,
-    };
-    http.Response response =
-        await http.post(Uri.parse(url), body: body, headers: headers);
-    print("BODY__ $body");
-    jsonData = loginModelFromJson(response.body);
-    if (response.statusCode == 200) {
-      jsonData = jsonDecode(response.body);
-      if (jsonData!.result == false) {
-        Fluttertoast.showToast(msg: jsonData.message.toString());
-      } else {
-        Fluttertoast.showToast(msg: jsonData.message.toString());
-        print("response__${response.body}");
-        Get.to(() => HomePage());
+      Map body = {
+        "email": emailORPhone,
+        "password": password,
+      };
+      http.Response response =
+          await http.post(Uri.parse(url), body: body, headers: headers);
+      print("BODY__ $body");
+      jsonData = loginModelFromJson(response.body);
+      if (response.statusCode == 200) {
+        jsonData = jsonDecode(response.body);
+        if (jsonData!.result == false) {
+          Fluttertoast.showToast(msg: jsonData.message.toString());
+        } else {
+          Fluttertoast.showToast(msg: jsonData.message.toString());
+          print("response__${response.body}");
+          Get.to(() => HomePage());
+        }
+        return jsonData;
       }
+    } catch (e) {
+      print("LOGIN ERROR__${e}");
+      Fluttertoast.showToast(msg: "Error is: $e");
     }
   }
 }
