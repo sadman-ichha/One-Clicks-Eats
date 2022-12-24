@@ -12,14 +12,14 @@ String loginModelToJson(LoginModel data) => json.encode(data.toJson());
 class LoginModel {
 
 
-    bool? result;
+  bool? result;
   String? message;
   String? accessToken;
   String? tokenType;
   dynamic expiresAt;
   User? user;
 
-  
+
   LoginModel({
     this.result,
     this.message,
