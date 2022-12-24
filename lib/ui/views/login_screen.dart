@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:one_clicks_eats/const/app_imags.dart';
+import 'package:one_clicks_eats/helper/login_helper.dart';
 import 'package:one_clicks_eats/ui/routes/route.dart';
 import 'package:one_clicks_eats/ui/styles/app_style.dart';
 import 'package:one_clicks_eats/ui/widgets/apple_button.dart';
@@ -11,8 +12,11 @@ class LoginScreen extends StatelessWidget {
   TextEditingController _emailORphoneController = TextEditingController();
   TextEditingController _passController = TextEditingController();
   GlobalKey<FormState> formKey = GlobalKey<FormState>();
-  
 
+  loginNow() async {
+    await LogInHelper()
+        .login(_emailORphoneController.text, _passController.text);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -65,9 +69,7 @@ class LoginScreen extends StatelessWidget {
                 }),
                 SizedBox(height: 35.0.h),
                 AppleButton("Log In", () {
-                  if (formKey.currentState!.validate()) {
-                    
-                  }
+                  if (formKey.currentState!.validate()) {}
                   ;
                 }),
                 SizedBox(height: 14.0.h),
