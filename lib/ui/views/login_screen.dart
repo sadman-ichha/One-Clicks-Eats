@@ -11,6 +11,9 @@ class LoginScreen extends StatelessWidget {
   TextEditingController _emailORphoneController = TextEditingController();
   TextEditingController _passController = TextEditingController();
   GlobalKey<FormState> formKey = GlobalKey<FormState>();
+  
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -62,7 +65,9 @@ class LoginScreen extends StatelessWidget {
                 }),
                 SizedBox(height: 35.0.h),
                 AppleButton("Log In", () {
-                  if (formKey.currentState!.validate()) {}
+                  if (formKey.currentState!.validate()) {
+                    
+                  }
                   ;
                 }),
                 SizedBox(height: 14.0.h),

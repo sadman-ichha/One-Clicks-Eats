@@ -1,5 +1,4 @@
 import 'dart:convert';
-
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:get/get.dart';
 import 'package:one_clicks_eats/const/server_config.dart';
