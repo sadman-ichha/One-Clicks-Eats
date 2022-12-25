@@ -9,7 +9,6 @@ class SharedPref {
 
   Future<String?> getPreference(String key) async {
     SharedPreferences preferences = await SharedPreferences.getInstance();
-
     return sharedPreferences!.getString(key);
   }
 }
