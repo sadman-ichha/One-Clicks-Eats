@@ -15,7 +15,7 @@ class OTPScreen extends StatelessWidget {
   String _currentCode = "";
 
   apiPostConfirmCode() async {
-    await OTPHelper().otpVerification(userID, verificationCode);
+    await OTPHelper().otpVerification(userID.toString(), verificationCode);
   }
 
   @override
