@@ -10,13 +10,14 @@ import 'package:one_clicks_eats/ui/styles/app_style.dart';
 import 'package:one_clicks_eats/ui/widgets/apple_button.dart';
 import 'package:one_clicks_eats/ui/widgets/custom_text_field.dart';
 import 'package:one_clicks_eats/ui/widgets/password_field.dart';
- RxBool isSelected = false.obs;
+
+RxBool isSelected = false.obs;
+
 class LoginScreen extends StatelessWidget {
   TextEditingController _emailORphoneController = TextEditingController();
   TextEditingController _passController = TextEditingController();
   GlobalKey<FormState> formKey = GlobalKey<FormState>();
-  RxBool isProgress = false.obs;
- 
+  
 
   loginNow() async {
     await LogInHelper()
