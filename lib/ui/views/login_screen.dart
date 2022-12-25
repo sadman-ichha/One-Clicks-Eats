@@ -73,7 +73,7 @@ class LoginScreen extends StatelessWidget {
                   () => Row(
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: [
-                      Checkbox(value: isSelected, onChanged: (val) {})
+                      Checkbox(value: isSelected.value, onChanged: (val) {})
                     ],
                   ),
                 ),
