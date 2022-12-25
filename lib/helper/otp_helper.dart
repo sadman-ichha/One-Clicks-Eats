@@ -5,13 +5,12 @@ import 'package:one_clicks_eats/const/server_config.dart';
 import 'package:one_clicks_eats/models/otp_model.dart';
 import 'package:one_clicks_eats/ui/routes/route.dart';
 
-
 class OTPHelper {
   Future<OtpModel?> otpVerification(userID, verificationCode) async {
     try {
       String url = Config.serverURl + Config.confirmCodeURL;
       var headers = {"Accept": "application/json"};
-     OtpModel? otpModels;
+      OtpModel? otpModels;
       Map body = {
         "user_id": userID,
         "verification_code": verificationCode,

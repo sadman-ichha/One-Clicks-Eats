@@ -14,7 +14,7 @@ class FoodApp extends StatelessWidget {
   const FoodApp({super.key});
 
   @override
-  Widget build(BuildContext context) {  
+  Widget build(BuildContext context) {
     return ScreenUtilInit(
         designSize: const Size(375, 812),
         splitScreenMode: true,
