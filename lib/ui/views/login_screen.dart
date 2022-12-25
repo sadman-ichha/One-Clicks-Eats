@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
 import 'package:one_clicks_eats/const/app_imags.dart';
 import 'package:one_clicks_eats/helper/login_helper.dart';
 import 'package:one_clicks_eats/ui/routes/route.dart';
@@ -12,7 +13,7 @@ class LoginScreen extends StatelessWidget {
   TextEditingController _emailORphoneController = TextEditingController();
   TextEditingController _passController = TextEditingController();
   GlobalKey<FormState> formKey = GlobalKey<FormState>();
-  bool isSelected = false;
+  RxBool isSelected = false.obs;
 
   loginNow() async {
     await LogInHelper()
@@ -68,10 +69,14 @@ class LoginScreen extends StatelessWidget {
                   }
                   return null;
                 }),
-
-                Row(children: [
-                  Checkbox(value: , onChanged: onChanged)
-                ],),
+                Obx(
+                  () => Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    children: [
+                      Checkbox(value: isSelected, onChanged: (val) {})
+                    ],
+                  ),
+                ),
                 SizedBox(height: 35.0.h),
                 AppleButton("Log In", () {
                   if (formKey.currentState!.validate()) {
