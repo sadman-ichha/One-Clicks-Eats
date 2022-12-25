@@ -1,10 +1,12 @@
-import 'dart:convert';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:get/get.dart';
+import 'package:one_clicks_eats/business_logic/shared_preferences.dart';
+import 'package:one_clicks_eats/const/app_string.dart';
 import 'package:one_clicks_eats/const/server_config.dart';
 import 'package:one_clicks_eats/models/login_model.dart';
 import 'package:http/http.dart' as http;
 import 'package:one_clicks_eats/ui/views/home_page.dart';
+import 'package:one_clicks_eats/ui/views/login_screen.dart';
 
 class LogInHelper {
   Future<LoginModel?> login(dynamic emailORPhone, String password) async {
@@ -27,6 +29,14 @@ class LogInHelper {
         } else {
           Fluttertoast.showToast(msg: jsonData.message.toString());
           print("response__${response.body}");
+          SharedPref().setPreference(
+              AppStrings.authToken, jsonData.accessToken.toString());
+          SharedPref().setPreference(
+              AppStrings.emailOr_Phone, jsonData.user!.phone.toString());
+          SharedPref().setPreference(AppStrings.passWord, password);
+          SharedPref()
+              .setPreference(AppStrings.rememberMe, isSelected.toString());
+
           Get.to(() => HomePage());
         }
         return jsonData;
