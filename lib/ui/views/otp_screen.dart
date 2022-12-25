@@ -15,12 +15,12 @@ class OTPScreen extends StatelessWidget {
   String _currentCode = "";
 
   apiPostConfirmCode() async {
-    await OTPHelper().otpVerification(userID.toString(), verificationCode);
+    await OTPHelper().otpVerification(userID, verificationCode);
   }
 
   @override
   Widget build(BuildContext context) {
-     print("ID__${userID}");
+    print("ID__${userID}");
     return Scaffold(
         appBar: AppBar(
           elevation: 0,

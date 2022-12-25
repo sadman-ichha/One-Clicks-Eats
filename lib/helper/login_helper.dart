@@ -22,8 +22,7 @@ class LogInHelper {
       print("BODY__ $body");
       jsonData = loginModelFromJson(response.body);
       if (response.statusCode == 200) {
-        jsonData = jsonDecode(response.body);
-        if (jsonData!.result == false) {
+        if (jsonData.result == false) {
           Fluttertoast.showToast(msg: jsonData.message.toString());
         } else {
           Fluttertoast.showToast(msg: jsonData.message.toString());

@@ -37,9 +37,9 @@ class SignUpHelper {
             msg: "${signUpModels.message.toString()}",
           );
         } else {
+          userID = signUpModels.userId!;
           print("USERIDD__${userID} ");
           print("11111${response.body}");
-          userID = signUpModels.userId!;
           Fluttertoast.showToast(
             msg: "${signUpModels.message.toString()}",
           );
