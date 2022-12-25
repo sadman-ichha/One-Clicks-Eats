@@ -75,6 +75,7 @@ class OTPScreen extends StatelessWidget {
                   decoration: BoxLooseDecoration(
                       strokeColorBuilder: FixedColorBuilder(Colors.black)),
                 ),
+               
               ),
               SizedBox(height: 37.0.h),
               AppleButton("Verify", () {
@@ -86,6 +87,7 @@ class OTPScreen extends StatelessWidget {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
+                     
                     //Text("Resend code to",style: AppStyles.textStyle),
                     //Text("01:26",style: AppStyles.mySubTitleTextStyle,)
                   ],
