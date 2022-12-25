@@ -17,6 +17,7 @@ class SignUpScreen extends StatelessWidget {
   TextEditingController _confirmPassController = TextEditingController();
   String? registerBy;
   int? userID;
+  RxBool isProgress = false.obs;
   GlobalKey<FormState> formKey = GlobalKey<FormState>();
 
   apiPostRegister() async {
