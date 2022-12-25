@@ -81,18 +81,17 @@ class OTPScreen extends StatelessWidget {
               AppleButton("Verify", () {
                 apiPostConfirmCode();
               }),
-              SizedBox(height: 16.0.h),
-              Padding(
-                padding: EdgeInsets.only(left: 30.0.w, right: 30.0.w),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                     
-                    //Text("Resend code to",style: AppStyles.textStyle),
-                    //Text("01:26",style: AppStyles.mySubTitleTextStyle,)
-                  ],
-                ),
-              )
+              // SizedBox(height: 16.0.h),
+              // Padding(
+              //   padding: EdgeInsets.only(left: 30.0.w, right: 30.0.w),
+              //   child: Row(
+              //     mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              //     children: [    
+              //       //Text("Resend code to",style: AppStyles.textStyle),
+              //       //Text("01:26",style: AppStyles.mySubTitleTextStyle,)
+              //     ],
+              //   ),
+              // )
             ],
           ),
         ));
