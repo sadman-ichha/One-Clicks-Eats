@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:one_clicks_eats/const/app_colors.dart';
 import 'package:one_clicks_eats/const/app_imags.dart';
 import 'package:one_clicks_eats/helper/login_helper.dart';
 import 'package:one_clicks_eats/ui/routes/route.dart';
@@ -13,6 +14,7 @@ class LoginScreen extends StatelessWidget {
   TextEditingController _emailORphoneController = TextEditingController();
   TextEditingController _passController = TextEditingController();
   GlobalKey<FormState> formKey = GlobalKey<FormState>();
+  RxBool isVisiable = false.obs;
   RxBool isSelected = false.obs;
 
   loginNow() async {
@@ -69,12 +71,29 @@ class LoginScreen extends StatelessWidget {
                   }
                   return null;
                 }),
+                SizedBox(height: 5.0.h),
                 Obx(
-                  () => Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    children: [
-                      Checkbox(value: isSelected.value, onChanged: (val) {})
-                    ],
+                  () => Padding(
+                    padding: EdgeInsets.only(
+                      left: 23.0.w,
+                    ),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: [
+                        Checkbox(
+                            activeColor: AppColors.appleColor,
+                            shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(4.0.r)),
+                            value: isSelected.value,
+                            onChanged: (bool? val) {
+                              isSelected.value = val!;
+                            }),
+                        Text(
+                          "Remember Me",
+                          style: AppStyles.mySubTitleTextStyle,
+                        ),
+                      ],
+                    ),
                   ),
                 ),
                 SizedBox(height: 35.0.h),
