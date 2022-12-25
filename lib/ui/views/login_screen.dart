@@ -12,6 +12,7 @@ class LoginScreen extends StatelessWidget {
   TextEditingController _emailORphoneController = TextEditingController();
   TextEditingController _passController = TextEditingController();
   GlobalKey<FormState> formKey = GlobalKey<FormState>();
+  bool isSelected = false;
 
   loginNow() async {
     await LogInHelper()
@@ -67,12 +68,15 @@ class LoginScreen extends StatelessWidget {
                   }
                   return null;
                 }),
+
+                Row(children: [
+                  Checkbox(value: , onChanged: onChanged)
+                ],),
                 SizedBox(height: 35.0.h),
                 AppleButton("Log In", () {
                   if (formKey.currentState!.validate()) {
                     loginNow();
                   }
-                  ;
                 }),
                 SizedBox(height: 14.0.h),
                 AppStyles().richText("Have an Account? ", "Sign Up", signup),
