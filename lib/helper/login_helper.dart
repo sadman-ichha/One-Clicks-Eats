@@ -34,8 +34,8 @@ class LogInHelper {
           SharedPref().setPreference(
               AppStrings.emailOr_Phone, jsonData.user!.phone.toString());
           SharedPref().setPreference(AppStrings.passWord, password);
-          SharedPref()
-              .setPreference(AppStrings.rememberMe, isSelected.toString());
+          // SharedPref()
+          //     .setPreference(AppStrings.rememberMe, isSelected.toString());
               
 
           Get.to(() => HomePage());

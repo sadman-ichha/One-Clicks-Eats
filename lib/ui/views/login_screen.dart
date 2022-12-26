@@ -14,16 +14,16 @@ import 'package:one_clicks_eats/ui/widgets/apple_button.dart';
 import 'package:one_clicks_eats/ui/widgets/custom_text_field.dart';
 import 'package:one_clicks_eats/ui/widgets/password_field.dart';
 
-RxBool isSelected = false.obs;
-
 class LoginScreen extends StatelessWidget {
   TextEditingController _emailORphoneController = TextEditingController();
   TextEditingController _passController = TextEditingController();
   GlobalKey<FormState> formKey = GlobalKey<FormState>();
-
+  RxBool isSelected = false.obs;
   loginNow() async {
+    isProgress.value = true;
     await LogInHelper()
         .login(_emailORphoneController.text, _passController.text);
+    isProgress.value = false;
   }
 
   @override
@@ -76,69 +76,75 @@ class LoginScreen extends StatelessWidget {
                   return null;
                 }),
                 SizedBox(height: 5.0.h),
-                Padding(
-                  padding: EdgeInsets.only(
-                    left: 23.0.w,
-                  ),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    children: [
-                      Checkbox(
-                          activeColor: AppColors.appleColor,
-                          shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(4.0.r)),
-                          value: isSelected.value,
-                          onChanged: (bool? val) {
-                            isSelected.value = val!;
-                          }),
-                      Text(
-                        "Remember Me",
-                        style: AppStyles.mySubTitleTextStyle,
-                      ),
-                    ],
+                Obx(
+                  () => Padding(
+                    padding: EdgeInsets.only(
+                      left: 23.0.w,
+                    ),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: [
+                        Checkbox(
+                            activeColor: AppColors.appleColor,
+                            shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(4.0.r)),
+                            value: isSelected.value,
+                            onChanged: (bool? val) {
+                              isSelected.value = val!;
+                            }),
+                        Text(
+                          "Remember Me",
+                          style: AppStyles.mySubTitleTextStyle,
+                        ),
+                      ],
+                    ),
                   ),
                 ),
                 SizedBox(height: 30.0.h),
-                Obx(
-                  () {
-                    if (isProgress.value) {
-                      return Center(
-                        child: CircularProgressIndicator(),
-                      );
-                    }
-                    return isSelected == true
-                        ? AppleButton("Log In", () {
-                            if (formKey.currentState!.validate()) {
-                              loginNow();
-                            }
-                          })
-                        : InkWell(
-                            onTap: () {
-                              Fluttertoast.showToast(
-                                  msg: "Please Selected Remember Me");
-                            },
-                            child: Container(
-                              height: 60.0.h,
-                              width: 307.0.w,
-                              decoration: BoxDecoration(
-                                color: Colors.grey,
-                                borderRadius: BorderRadius.all(
-                                  Radius.circular(3.0.r),
-                                ),
-                              ),
-                              child: Center(
-                                child: Text(
-                                  "Log In",
-                                  style: TextStyle(
-                                      fontSize: 16.0.sp,
-                                      fontWeight: FontWeight.w600,
-                                      color: const Color(0xFFFFFFFF)),
-                                ),
+                Obx(() {
+                  if (isProgress.value) {
+                    return Center(
+                        child: SizedBox(
+                      height: 30.0.h,
+                      width: 30.0.w,
+                      child: CircularProgressIndicator(
+                        color: AppColors.appleColor,
+                        strokeWidth: 2.8.w,
+                      ),
+                    ));
+                  }
+                  return isSelected.value == true
+                      ? AppleButton("Log In", () {
+                          if (formKey.currentState!.validate()) {
+                            loginNow();
+                          }
+                        })
+                      : InkWell(
+                          onTap: () {
+                            Fluttertoast.showToast(
+                                msg: "Please Selected Remember Me");
+                          },
+                          child: Container(
+                            height: 60.0.h,
+                            width: 307.0.w,
+                            decoration: BoxDecoration(
+                              color: Colors.grey,
+                              borderRadius: BorderRadius.all(
+                                Radius.circular(3.0.r),
                               ),
                             ),
-                          );
-                  },
-                ),
+                            child: Center(
+                              child: Text(
+                                "Log In",
+                                style: TextStyle(
+                                    fontSize: 16.0.sp,
+                                    fontWeight: FontWeight.w600,
+                                    color: const Color(0xFFFFFFFF)),
+                              ),
+                            ),
+                          ),
+                        );
+                }),
                 SizedBox(height: 14.0.h),
                 AppStyles().richText("Have an Account? ", "Sign Up", signup),
               ],
