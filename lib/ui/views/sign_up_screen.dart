@@ -9,7 +9,6 @@ import 'package:one_clicks_eats/ui/styles/app_style.dart';
 import 'package:one_clicks_eats/ui/widgets/apple_button.dart';
 import 'package:one_clicks_eats/ui/widgets/custom_text_field.dart';
 import 'package:one_clicks_eats/ui/widgets/password_field.dart';
-
 import '../../const/global_variable.dart';
 
 class SignUpScreen extends StatelessWidget {
@@ -123,9 +122,7 @@ class SignUpScreen extends StatelessWidget {
                 Obx(
                   () {
                     if (isProgress.value) {
-                      return Center(
-                        child: CircularProgressIndicator(),
-                      );
+                      return AppStyles().progressIndicator();
                     }
                     return AppleButton("Sign Up", () {
                       if (formKey.currentState!.validate()) {

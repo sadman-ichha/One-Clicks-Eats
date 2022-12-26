@@ -103,15 +103,7 @@ class LoginScreen extends StatelessWidget {
                 SizedBox(height: 30.0.h),
                 Obx(() {
                   if (isProgress.value) {
-                    return Center(
-                        child: SizedBox(
-                      height: 30.0.h,
-                      width: 30.0.w,
-                      child: CircularProgressIndicator(
-                        color: AppColors.appleColor,
-                        strokeWidth: 2.8.w,
-                      ),
-                    ));
+                    return AppStyles().progressIndicator();
                   }
                   return isSelected.value == true
                       ? AppleButton("Log In", () {

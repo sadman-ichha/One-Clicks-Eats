@@ -5,7 +5,7 @@ import 'package:get/get.dart';
 import '../../const/app_colors.dart';
 
 class AppStyles {
-  RichText richText(String firstText, String secText,navigatePage) => RichText(
+  RichText richText(String firstText, String secText, navigatePage) => RichText(
         text: TextSpan(
             text: firstText,
             style: TextStyle(
@@ -21,7 +21,7 @@ class AppStyles {
                     fontWeight: FontWeight.w500,
                     color: AppColors.appleColor),
                 recognizer: TapGestureRecognizer()
-                  ..onTap= () => Get.toNamed(navigatePage),
+                  ..onTap = () => Get.toNamed(navigatePage),
               )
             ]),
       );
@@ -30,4 +30,16 @@ class AppStyles {
       fontSize: 27.0.sp, fontWeight: FontWeight.w600, color: Color(0xFF343B42));
   static TextStyle mySubTitleTextStyle = TextStyle(
       fontSize: 16.0.sp, fontWeight: FontWeight.w400, color: Color(0xFF8D8D8D));
+
+   progressIndicator() {
+   return SizedBox(
+        height: 30.0.h,
+        width: 30.0.w,
+        child: CircularProgressIndicator(
+          color: AppColors.appleColor,
+          strokeWidth: 2.8.w,
+        ),
+     
+    );
+  }
 }
