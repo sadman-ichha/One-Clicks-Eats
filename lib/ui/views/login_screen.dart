@@ -17,7 +17,9 @@ class LoginScreen extends StatelessWidget {
   TextEditingController _emailORphoneController = TextEditingController();
   TextEditingController _passController = TextEditingController();
   GlobalKey<FormState> formKey = GlobalKey<FormState>();
-  
+   
+   
+
 
   loginNow() async {
     await LogInHelper()
@@ -74,8 +76,7 @@ class LoginScreen extends StatelessWidget {
                   return null;
                 }),
                 SizedBox(height: 5.0.h),
-                Obx(
-                  () => Padding(
+               Padding(
                     padding: EdgeInsets.only(
                       left: 23.0.w,
                     ),
@@ -97,7 +98,7 @@ class LoginScreen extends StatelessWidget {
                       ],
                     ),
                   ),
-                ),
+              ],
                 SizedBox(height: 30.0.h),
                 Obx(() => isSelected == true
                     ? AppleButton("Log In", () {

@@ -10,6 +10,8 @@ import 'package:one_clicks_eats/ui/widgets/apple_button.dart';
 import 'package:one_clicks_eats/ui/widgets/custom_text_field.dart';
 import 'package:one_clicks_eats/ui/widgets/password_field.dart';
 
+import '../../const/global_variable.dart';
+
 class SignUpScreen extends StatelessWidget {
   TextEditingController _nameController = TextEditingController();
   TextEditingController _emailORphoneController = TextEditingController();
@@ -17,10 +19,11 @@ class SignUpScreen extends StatelessWidget {
   TextEditingController _confirmPassController = TextEditingController();
   String? registerBy;
   int? userID;
-  RxBool isProgress = false.obs;
+
   GlobalKey<FormState> formKey = GlobalKey<FormState>();
 
   apiPostRegister() async {
+    isProgress.value = true;
     if (_emailORphoneController.text.contains("@")) {
       registerBy = "email";
     } else {
@@ -34,6 +37,7 @@ class SignUpScreen extends StatelessWidget {
       _confirmPassController.text,
       registerBy,
     );
+    isProgress.value = false;
   }
 
   @override
@@ -116,14 +120,23 @@ class SignUpScreen extends StatelessWidget {
                   },
                 ),
                 SizedBox(height: 35.0.h),
-                AppleButton("Sign Up", () {
-                  if (formKey.currentState!.validate()) {
-                    apiPostRegister();
-                  } else {
-                    print("Error is formValidation");
-                    Fluttertoast.showToast(msg: "Error is formValidation");
-                  }
-                }),
+                Obx(
+                  () {
+                    if (isProgress.value) {
+                      return Center(
+                        child: CircularProgressIndicator(),
+                      );
+                    }
+                    return AppleButton("Sign Up", () {
+                      if (formKey.currentState!.validate()) {
+                        apiPostRegister();
+                      } else {
+                        print("Error is formValidation");
+                        Fluttertoast.showToast(msg: "Error is formValidation");
+                      }
+                    });
+                  },
+                ),
                 SizedBox(height: 14.0.h),
                 AppStyles().richText("Have an Account? ", "Log In", login),
               ],
