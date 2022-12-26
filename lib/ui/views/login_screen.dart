@@ -17,9 +17,6 @@ class LoginScreen extends StatelessWidget {
   TextEditingController _emailORphoneController = TextEditingController();
   TextEditingController _passController = TextEditingController();
   GlobalKey<FormState> formKey = GlobalKey<FormState>();
-   
-   
-
 
   loginNow() async {
     await LogInHelper()
@@ -76,29 +73,28 @@ class LoginScreen extends StatelessWidget {
                   return null;
                 }),
                 SizedBox(height: 5.0.h),
-               Padding(
-                    padding: EdgeInsets.only(
-                      left: 23.0.w,
-                    ),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      children: [
-                        Checkbox(
-                            activeColor: AppColors.appleColor,
-                            shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(4.0.r)),
-                            value: isSelected.value,
-                            onChanged: (bool? val) {
-                              isSelected.value = val!;
-                            }),
-                        Text(
-                          "Remember Me",
-                          style: AppStyles.mySubTitleTextStyle,
-                        ),
-                      ],
-                    ),
+                Padding(
+                  padding: EdgeInsets.only(
+                    left: 23.0.w,
                   ),
-              ],
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      Checkbox(
+                          activeColor: AppColors.appleColor,
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(4.0.r)),
+                          value: isSelected.value,
+                          onChanged: (bool? val) {
+                            isSelected.value = val!;
+                          }),
+                      Text(
+                        "Remember Me",
+                        style: AppStyles.mySubTitleTextStyle,
+                      ),
+                    ],
+                  ),
+                ),
                 SizedBox(height: 30.0.h),
                 Obx(() => isSelected == true
                     ? AppleButton("Log In", () {
