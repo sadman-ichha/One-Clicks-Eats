@@ -1,9 +1,12 @@
+// ignore_for_file: dead_code
+
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:get/get.dart';
 import 'package:one_clicks_eats/const/app_colors.dart';
 import 'package:one_clicks_eats/const/app_imags.dart';
+import 'package:one_clicks_eats/const/global_variable.dart';
 import 'package:one_clicks_eats/helper/login_helper.dart';
 import 'package:one_clicks_eats/ui/routes/route.dart';
 import 'package:one_clicks_eats/ui/styles/app_style.dart';
@@ -96,37 +99,46 @@ class LoginScreen extends StatelessWidget {
                   ),
                 ),
                 SizedBox(height: 30.0.h),
-                Obx(() => isSelected == true
-                    ? AppleButton("Log In", () {
-                        if (formKey.currentState!.validate()) {
-                          loginNow();
-                        }
-                      })
-                    : InkWell(
-                        onTap: () {
-                          Fluttertoast.showToast(
-                              msg: "Please Selected Remember Me");
-                        },
-                        child: Container(
-                          height: 60.0.h,
-                          width: 307.0.w,
-                          decoration: BoxDecoration(
-                            color: Colors.grey,
-                            borderRadius: BorderRadius.all(
-                              Radius.circular(3.0.r),
+                Obx(
+                  () {
+                    if (isProgress.value) {
+                      return Center(
+                        child: CircularProgressIndicator(),
+                      );
+                    }
+                    return isSelected == true
+                        ? AppleButton("Log In", () {
+                            if (formKey.currentState!.validate()) {
+                              loginNow();
+                            }
+                          })
+                        : InkWell(
+                            onTap: () {
+                              Fluttertoast.showToast(
+                                  msg: "Please Selected Remember Me");
+                            },
+                            child: Container(
+                              height: 60.0.h,
+                              width: 307.0.w,
+                              decoration: BoxDecoration(
+                                color: Colors.grey,
+                                borderRadius: BorderRadius.all(
+                                  Radius.circular(3.0.r),
+                                ),
+                              ),
+                              child: Center(
+                                child: Text(
+                                  "Log In",
+                                  style: TextStyle(
+                                      fontSize: 16.0.sp,
+                                      fontWeight: FontWeight.w600,
+                                      color: const Color(0xFFFFFFFF)),
+                                ),
+                              ),
                             ),
-                          ),
-                          child: Center(
-                            child: Text(
-                              "Log In",
-                              style: TextStyle(
-                                  fontSize: 16.0.sp,
-                                  fontWeight: FontWeight.w600,
-                                  color: const Color(0xFFFFFFFF)),
-                            ),
-                          ),
-                        ),
-                      )),
+                          );
+                  },
+                ),
                 SizedBox(height: 14.0.h),
                 AppStyles().richText("Have an Account? ", "Sign Up", signup),
               ],
