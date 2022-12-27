@@ -5,4 +5,5 @@ class AppStrings {
  static const String passWord = "password";
   static const String authToken = "token";
   static const String rememberMe = "me";
+  static const String name = "name";
 }

@@ -8,10 +8,43 @@ class SharedPref {
     prefs.setString(AppStrings.authToken, value);
   }
 
-  Future<String?> getToken(String key) async {
-    SharedPreferences prefs = await SharedPreferences.getInstance();
-    return prefs.getString(key);
+  Future getToken() async {
+    await sharedPreferences!.get(AppStrings.authToken);
   }
 
- 
+  Future<void> setName(String value) async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    prefs.setString(AppStrings.name, value);
+  }
+
+  Future getName() async {
+    await sharedPreferences!.get(AppStrings.name);
+  }
+
+  Future<void> setEmailorPhone(String value) async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    prefs.setString(AppStrings.emailOr_Phone, value);
+  }
+
+  Future getEmailorPhone() async {
+    await sharedPreferences!.get(AppStrings.emailOr_Phone);
+  }
+
+  Future<void> setPassword(String value) async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    prefs.setString(AppStrings.passWord, value);
+  }
+
+  Future getPassword() async {
+    await sharedPreferences!.get(AppStrings.passWord);
+  }
+
+  Future<void> setRememberMe(String value) async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    prefs.setString(AppStrings.rememberMe, value);
+  }
+
+  Future getRememberMe() async {
+    await sharedPreferences!.get(AppStrings.rememberMe);
+  }
 }

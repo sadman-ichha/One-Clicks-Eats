@@ -1,4 +1,5 @@
 import 'package:get/get.dart';
+import 'package:one_clicks_eats/ui/views/home_page.dart';
 import 'package:one_clicks_eats/ui/views/login_screen.dart';
 import 'package:one_clicks_eats/ui/views/onboarding_screen.dart';
 import 'package:one_clicks_eats/ui/views/otp_screen.dart';
@@ -33,4 +34,8 @@ List<GetPage> getPages = [
   //   name: otp,
   //   page: () =>  OTPScreen(),
   // ),
+  GetPage(
+    name: home,
+    page: () =>  HomeScreen(),
+  ),
 ];
