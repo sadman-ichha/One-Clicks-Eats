@@ -1,3 +1,4 @@
+import 'package:get/get.dart';
 import 'package:one_clicks_eats/const/app_string.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
