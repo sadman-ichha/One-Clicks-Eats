@@ -5,40 +5,32 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:one_clicks_eats/const/app_colors.dart';
 import 'package:one_clicks_eats/const/app_string.dart';
 import 'package:one_clicks_eats/ui/routes/route.dart';
+import 'package:one_clicks_eats/ui/styles/app_style.dart';
 import 'package:one_clicks_eats/ui/views/login_screen.dart';
 import 'package:one_clicks_eats/ui/views/splash_screen.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 Future<void> main() async {
-  String initialRoute;
   // handle exceptions caused by making main async
   WidgetsFlutterBinding.ensureInitialized();
-  // init a shared preferences variable
-  
 
-
-
-  runApp(FoodApp());
+  runApp(App());
 }
 
+class App extends StatelessWidget {
+  const App({super.key});
 
-Future<Null> checkIsLogin(context) async {
-    String _token = "";
-    SharedPreferences prefs = await SharedPreferences.getInstance();
-    _token = prefs.getString(AppStrings.authToken)!;
-    if (_token != "" && _token != null) {
-      print("alreay login.");
-      //your home page is loaded
-    }
-    else
-    {
-      //replace it with the login page
-      Navigator.pushReplacement(
-        context,
-        MaterialPageRoute(builder: (context) =>  LoginScreen()),
-      );
-    }
+  @override
+  Widget build(BuildContext context) {
+    return FutureBuilder(builder: (context, AsyncSnapshot snapshot) {
+      if (snapshot.hasError) {
+        return Center(
+          child: AppStyles().progressIndicator(),
+        );
+      }
+    });
   }
+}
 
 class FoodApp extends StatelessWidget {
   const FoodApp({super.key});
