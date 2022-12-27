@@ -41,13 +41,17 @@ class OnboardingScreen extends StatelessWidget {
             padding: EdgeInsets.only(right: 20.0.w),
             child: InkWell(
               onTap: () {
-                _currentIndex.value= 2 ;
+                _currentIndex.value = 2;
               },
-              child:Text("SKIP",
-                  style: TextStyle(
-                      fontSize: 16.0.sp,
-                      fontWeight: FontWeight.w500,
-                      color: Color(0xFF8D8D8D)))
+              child: Obx(
+                () => _currentIndex.value == 0
+                    ? Text("SKIP",
+                        style: TextStyle(
+                            fontSize: 16.0.sp,
+                            fontWeight: FontWeight.w500,
+                            color: Color(0xFF8D8D8D)))
+                    : Container(),
+              ),
             ),
           )),
         ],
