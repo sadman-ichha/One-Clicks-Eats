@@ -3,11 +3,18 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:one_clicks_eats/const/app_colors.dart';
+import 'package:one_clicks_eats/const/app_string.dart';
 import 'package:one_clicks_eats/ui/routes/route.dart';
 import 'package:one_clicks_eats/ui/views/splash_screen.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
-void main() {
-  runApp(const FoodApp());
+Future<void> main() async {
+  // handle exceptions caused by making main async
+  WidgetsFlutterBinding.ensureInitialized();
+  // init a shared preferences variable
+  SharedPreferences prefs = await SharedPreferences.getInstance();
+  String? token = prefs.getString(AppStrings.authToken);
+  runApp(FoodApp());
 }
 
 class FoodApp extends StatelessWidget {
