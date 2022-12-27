@@ -3,14 +3,14 @@ import 'package:one_clicks_eats/const/app_string.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class SharedPref {
-  SharedPreferences? sharedPreferencesInstance;
+  SharedPreferences? sharedPreferences;
   Future<void> setToken(String value) async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     prefs.setString(AppStrings.authToken, value);
   }
 
   Future getToken() async {
-    await sharedPreferencesInstance!.get(AppStrings.authToken);
+    await sharedPreferences!.get(AppStrings.authToken);
   }
 
   Future<void> setName(String value) async {
@@ -19,7 +19,7 @@ class SharedPref {
   }
 
   Future getName() async {
-    await sharedPreferencesInstance!.get(AppStrings.name);
+    await sharedPreferences!.get(AppStrings.name);
   }
 
   Future<void> setEmailorPhone(String value) async {
@@ -28,7 +28,7 @@ class SharedPref {
   }
 
   Future getEmailorPhone() async {
-    await sharedPreferencesInstance!.get(AppStrings.emailOr_Phone);
+    await sharedPreferences!.get(AppStrings.emailOr_Phone);
   }
 
   Future<void> setPassword(String value) async {
@@ -37,7 +37,7 @@ class SharedPref {
   }
 
   Future getPassword() async {
-    await sharedPreferencesInstance!.get(AppStrings.passWord);
+    await sharedPreferences!.get(AppStrings.passWord);
   }
 
   Future<void> setRememberMe(bool value) async {
@@ -46,6 +46,6 @@ class SharedPref {
   }
 
   Future getRememberMe() async {
-    await sharedPreferencesInstance!.get(AppStrings.rememberMe);
+    await sharedPreferences!.get(AppStrings.rememberMe);
   }
 }
