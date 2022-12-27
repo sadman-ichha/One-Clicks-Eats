@@ -31,15 +31,14 @@ class AppStyles {
   static TextStyle mySubTitleTextStyle = TextStyle(
       fontSize: 16.0.sp, fontWeight: FontWeight.w400, color: Color(0xFF8D8D8D));
 
-   progressIndicator() {
-   return SizedBox(
-        height: 30.0.h,
-        width: 30.0.w,
-        child: CircularProgressIndicator(
-          color: AppColors.appleColor,
-          strokeWidth: 2.8.w,
-        ),
-     
+  progressIndicator() {
+    return SizedBox(
+      height: 30.0.h,
+      width: 30.0.w,
+      child: CircularProgressIndicator(
+        color: AppColors.appleColor,
+        strokeWidth: 2.8.w,
+      ),
     );
   }
 }

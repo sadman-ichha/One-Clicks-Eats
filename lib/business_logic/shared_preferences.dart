@@ -1,14 +1,17 @@
+import 'package:one_clicks_eats/const/app_string.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class SharedPref {
   SharedPreferences? sharedPreferences;
-  Future<void> setPreference(String key, String value) async {
-    SharedPreferences preferences = await SharedPreferences.getInstance();
-    sharedPreferences!.setString(key, value);
+  Future<void> setToken(String value) async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    prefs.setString(AppStrings.authToken, value);
   }
 
-  Future<String?> getPreference(String key) async {
-    SharedPreferences preferences = await SharedPreferences.getInstance();
-    return sharedPreferences!.getString(key);
+  Future<String?> getToken(String key) async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    return prefs.getString(key);
   }
+
+ 
 }
