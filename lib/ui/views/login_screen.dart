@@ -18,7 +18,7 @@ class LoginScreen extends StatelessWidget {
   TextEditingController _emailORphoneController = TextEditingController();
   TextEditingController _passController = TextEditingController();
   GlobalKey<FormState> formKey = GlobalKey<FormState>();
-  RxBool isSelected = false.obs;
+  
   loginNow() async {
     isProgress.value = true;
     await LogInHelper()

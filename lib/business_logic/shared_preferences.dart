@@ -39,9 +39,9 @@ class SharedPref {
     await sharedPreferences!.get(AppStrings.passWord);
   }
 
-  Future<void> setRememberMe(String value) async {
+  Future<void> setRememberMe(bool value) async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
-    prefs.setString(AppStrings.rememberMe, value);
+    prefs.setBool(AppStrings.rememberMe, value);
   }
 
   Future getRememberMe() async {
