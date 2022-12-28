@@ -33,11 +33,7 @@ class LogInHelper {
           Fluttertoast.showToast(msg: jsonData.message.toString());
           log("response__${response.body}"); //print
 
-          SharedPref().setToken("${jsonData.accessToken}");
-          print(SharedPref().setToken("${jsonData.accessToken}"));
-          SharedPref().setEmailorPhone(jsonData.user!.email.toString());
-          SharedPref().setPassword(password.toString());
-          SharedPref().setRememberMe(isSelected.value);
+      
           Get.offAllNamed(home);
           // Get.to(NextPage());
         }
