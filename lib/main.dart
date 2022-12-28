@@ -3,34 +3,43 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:one_clicks_eats/const/app_colors.dart';
-import 'package:one_clicks_eats/const/app_string.dart';
 import 'package:one_clicks_eats/ui/routes/route.dart';
-import 'package:one_clicks_eats/ui/styles/app_style.dart';
-import 'package:one_clicks_eats/ui/views/login_screen.dart';
+
 import 'package:one_clicks_eats/ui/views/splash_screen.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
 Future<void> main() async {
   // handle exceptions caused by making main async
   WidgetsFlutterBinding.ensureInitialized();
-
-  runApp(App());
+  runApp(FoodApp());
 }
 
-class App extends StatelessWidget {
-  const App({super.key});
+// class App extends StatelessWidget {
+//   AuthController authController = AuthController();
 
-  @override
-  Widget build(BuildContext context) {
-    return FutureBuilder(builder: (context, AsyncSnapshot snapshot) {
-      if (snapshot.hasError) {
-        return Center(
-          child: AppStyles().progressIndicator(),
-        );
-      }
-    });
-  }
-}
+//   @override
+//   Widget build(BuildContext context) {
+//     return FutureBuilder(
+//         future: authController.autoLogin(),
+//         builder: (context, AsyncSnapshot snapshot) {
+//           if (snapshot.hasError) {
+//             return Center(
+//               child: CircularProgressIndicator(
+//                   color: AppColors.appleColor,
+//                   ),
+//             );
+//           } else {
+//             if (snapshot.data == true) {
+//               home;
+//             }
+//             login;
+//           }
+//           // if (snapshot.connectionState == ConnectionState.done) {
+//           //   return FoodApp();
+//           // }
+//           return FoodApp();
+//         });
+//   }
+// }
 
 class FoodApp extends StatelessWidget {
   const FoodApp({super.key});
@@ -53,7 +62,7 @@ class FoodApp extends StatelessWidget {
             ),
             initialRoute: splash,
             getPages: getPages,
-            home: const SplashScreen(),
+            home: SplashScreen(),
           );
         });
   }

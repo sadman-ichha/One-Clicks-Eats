@@ -10,7 +10,8 @@ class SharedPref {
   }
 
   Future getToken() async {
-    await sharedPreferences!.get(AppStrings.authToken);
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    return prefs.get(AppStrings.authToken)?? "";
   }
 
   Future<void> setName(String value) async {
@@ -19,7 +20,8 @@ class SharedPref {
   }
 
   Future getName() async {
-    await sharedPreferences!.get(AppStrings.name);
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    return prefs.get(AppStrings.name)?? "";
   }
 
   Future<void> setEmailorPhone(String value) async {
@@ -28,7 +30,8 @@ class SharedPref {
   }
 
   Future getEmailorPhone() async {
-    await sharedPreferences!.get(AppStrings.emailOr_Phone);
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    return prefs.get(AppStrings.emailOr_Phone)?? "";
   }
 
   Future<void> setPassword(String value) async {
@@ -37,7 +40,8 @@ class SharedPref {
   }
 
   Future getPassword() async {
-    await sharedPreferences!.get(AppStrings.passWord);
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    return prefs.get(AppStrings.passWord)?? "";
   }
 
   Future<void> setRememberMe(bool value) async {
@@ -46,6 +50,7 @@ class SharedPref {
   }
 
   Future getRememberMe() async {
-    await sharedPreferences!.get(AppStrings.rememberMe);
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    return prefs.get(AppStrings.rememberMe)?? "";
   }
 }

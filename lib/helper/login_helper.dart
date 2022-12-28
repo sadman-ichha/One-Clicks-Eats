@@ -8,6 +8,7 @@ import 'package:one_clicks_eats/models/login_model.dart';
 import 'package:http/http.dart' as http;
 import 'package:one_clicks_eats/ui/routes/route.dart';
 
+
 import '../const/global_variable.dart';
 
 class LogInHelper {
@@ -33,10 +34,12 @@ class LogInHelper {
           log("response__${response.body}"); //print
 
           SharedPref().setToken("${jsonData.accessToken}");
+          print(SharedPref().setToken("${jsonData.accessToken}"));
           SharedPref().setEmailorPhone(jsonData.user!.email.toString());
           SharedPref().setPassword(password.toString());
           SharedPref().setRememberMe(isSelected.value);
           Get.offAllNamed(home);
+          // Get.to(NextPage());
         }
         return jsonData;
       }
