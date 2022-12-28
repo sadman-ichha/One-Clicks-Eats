@@ -21,6 +21,18 @@ class LoginScreen extends StatelessWidget {
   TextEditingController _passController = TextEditingController();
   GlobalKey<FormState> formKey = GlobalKey<FormState>();
 
+  void getInitialize() async {
+    if (await SharedPref.getPreferences(AppStrings.rememberMe) == "true") {
+      isSelected.value = true;
+      _emailORphoneController.text =
+          (await SharedPref.getPreferences(AppStrings.emailOr_Phone))!;
+      _passController.text =
+          (await SharedPref.getPreferences(AppStrings.passWord))!;
+    } else {
+      isSelected.value = false;
+    }
+  }
+
   loginNow() async {
     isProgress.value = true;
     await LogInHelper()
