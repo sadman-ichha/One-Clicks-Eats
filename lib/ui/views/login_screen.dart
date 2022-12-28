@@ -10,7 +10,6 @@ import 'package:one_clicks_eats/const/app_imags.dart';
 import 'package:one_clicks_eats/const/app_string.dart';
 import 'package:one_clicks_eats/const/global_variable.dart';
 import 'package:one_clicks_eats/controller/login_credential_controller.dart';
-import 'package:one_clicks_eats/helper/login_helper.dart';
 import 'package:one_clicks_eats/ui/routes/route.dart';
 import 'package:one_clicks_eats/ui/styles/app_style.dart';
 import 'package:one_clicks_eats/ui/widgets/apple_button.dart';
@@ -18,11 +17,9 @@ import 'package:one_clicks_eats/ui/widgets/custom_text_field.dart';
 import 'package:one_clicks_eats/ui/widgets/password_field.dart';
 
 class LoginScreen extends StatelessWidget {
-  // TextEditingController _emailORphoneController = TextEditingController();
-  // TextEditingController _passController = TextEditingController();
   GlobalKey<FormState> formKey = GlobalKey<FormState>();
 
-  final con = Get.put(LoginCredentialController());
+  final loginController = Get.put(LoginCredentialController());
 
   @override
   Widget build(BuildContext context) {
@@ -57,7 +54,7 @@ class LoginScreen extends StatelessWidget {
                       customTextfield(
                           hintsText: "Email or Phone",
                           controller:
-                              con.emailORphoneController.value,
+                              loginController.emailORphoneController.value,
                           keyboardType: TextInputType.text,
                           icon: Icons.perm_phone_msg_rounded,
                           validate: (val) {
@@ -68,7 +65,7 @@ class LoginScreen extends StatelessWidget {
                           }),
                       SizedBox(height: 8.0.h),
                       passwordTextField("Password", Icons.lock_outline,
-                          con.passController.value,
+                          loginController.passController.value,
                           validate: (val) {
                         if (val!.isEmpty) {
                           return "This field is required";
@@ -114,7 +111,7 @@ class LoginScreen extends StatelessWidget {
                         return isSelected.value == true
                             ? AppleButton("Log In", () {
                                 if (formKey.currentState!.validate()) {
-                                  con.loginNow();
+                                  loginController.loginNow();
                                 }
                               })
                             : InkWell(
