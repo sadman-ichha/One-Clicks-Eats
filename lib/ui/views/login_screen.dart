@@ -9,6 +9,7 @@ import 'package:one_clicks_eats/const/app_colors.dart';
 import 'package:one_clicks_eats/const/app_imags.dart';
 import 'package:one_clicks_eats/const/app_string.dart';
 import 'package:one_clicks_eats/const/global_variable.dart';
+import 'package:one_clicks_eats/controller/login_credential_controller.dart';
 import 'package:one_clicks_eats/helper/login_helper.dart';
 import 'package:one_clicks_eats/ui/routes/route.dart';
 import 'package:one_clicks_eats/ui/styles/app_style.dart';
@@ -17,26 +18,15 @@ import 'package:one_clicks_eats/ui/widgets/custom_text_field.dart';
 import 'package:one_clicks_eats/ui/widgets/password_field.dart';
 
 class LoginScreen extends StatelessWidget {
-  TextEditingController _emailORphoneController = TextEditingController();
-  TextEditingController _passController = TextEditingController();
+  // TextEditingController _emailORphoneController = TextEditingController();
+  // TextEditingController _passController = TextEditingController();
   GlobalKey<FormState> formKey = GlobalKey<FormState>();
-
-  void getInitialize() async {
-    if (await SharedPref.getPreferences(AppStrings.rememberMe) == "true") {
-      isSelected.value = true;
-      _emailORphoneController.text =
-          (await SharedPref.getPreferences(AppStrings.emailOr_Phone))!;
-      _passController.text =
-          (await SharedPref.getPreferences(AppStrings.passWord))!;
-    } else {
-      isSelected.value = false;
-    }
-  }
 
   loginNow() async {
     isProgress.value = true;
-    await LogInHelper()
-        .login(_emailORphoneController.text, _passController.text);
+    await LogInHelper().login(
+        LoginCredentialController().emailORphoneController.text,
+        LoginCredentialController().passController.text);
     isProgress.value = false;
   }
 
@@ -69,7 +59,8 @@ class LoginScreen extends StatelessWidget {
                 SizedBox(height: 35.0.h),
                 customTextfield(
                     hintsText: "Email or Phone",
-                    controller: _emailORphoneController,
+                    controller:
+                        LoginCredentialController().emailORphoneController,
                     keyboardType: TextInputType.text,
                     icon: Icons.perm_phone_msg_rounded,
                     validate: (val) {
@@ -79,8 +70,8 @@ class LoginScreen extends StatelessWidget {
                       return null;
                     }),
                 SizedBox(height: 8.0.h),
-                passwordTextField(
-                    "Password", Icons.lock_outline, _passController,
+                passwordTextField("Password", Icons.lock_outline,
+                    LoginCredentialController().passController,
                     validate: (val) {
                   if (val!.isEmpty) {
                     return "This field is required";
