@@ -3,11 +3,11 @@ import 'dart:developer';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:get/get.dart';
 import 'package:one_clicks_eats/business_logic/shared_preferences.dart';
+import 'package:one_clicks_eats/const/app_string.dart';
 import 'package:one_clicks_eats/const/server_config.dart';
 import 'package:one_clicks_eats/models/login_model.dart';
 import 'package:http/http.dart' as http;
 import 'package:one_clicks_eats/ui/routes/route.dart';
-
 
 import '../const/global_variable.dart';
 
@@ -32,10 +32,12 @@ class LogInHelper {
         } else {
           Fluttertoast.showToast(msg: jsonData.message.toString());
           log("response__${response.body}"); //print
-           if(isSelected.value){
-            SharedPref
-           }
-      
+          if (isSelected.value) {
+            SharedPref.setPreferences(
+                AppStrings.emailOr_Phone, emailORPhone.toString());
+            SharedPref.setPreferences(AppStrings.passWord, password);
+          }
+
           Get.offAllNamed(home);
           // Get.to(NextPage());
         }
