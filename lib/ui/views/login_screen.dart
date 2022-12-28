@@ -95,6 +95,7 @@ class LoginScreen extends StatelessWidget {
                               isSelected.value = val!;
                               SharedPref.setPreferences(
                                   AppStrings.rememberMe, val.toString());
+                              print("isSeleceted__$isSelected");
                             }),
                         Text(
                           "Remember Me",
