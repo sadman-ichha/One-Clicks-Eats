@@ -4,8 +4,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:get/get.dart';
+import 'package:one_clicks_eats/business_logic/shared_preferences.dart';
 import 'package:one_clicks_eats/const/app_colors.dart';
 import 'package:one_clicks_eats/const/app_imags.dart';
+import 'package:one_clicks_eats/const/app_string.dart';
 import 'package:one_clicks_eats/const/global_variable.dart';
 import 'package:one_clicks_eats/helper/login_helper.dart';
 import 'package:one_clicks_eats/ui/routes/route.dart';
@@ -18,7 +20,7 @@ class LoginScreen extends StatelessWidget {
   TextEditingController _emailORphoneController = TextEditingController();
   TextEditingController _passController = TextEditingController();
   GlobalKey<FormState> formKey = GlobalKey<FormState>();
-  
+
   loginNow() async {
     isProgress.value = true;
     await LogInHelper()
@@ -91,6 +93,8 @@ class LoginScreen extends StatelessWidget {
                             value: isSelected.value,
                             onChanged: (bool? val) {
                               isSelected.value = val!;
+                              SharedPref.setPreferences(
+                                  AppStrings.rememberMe, val.toString());
                             }),
                         Text(
                           "Remember Me",
