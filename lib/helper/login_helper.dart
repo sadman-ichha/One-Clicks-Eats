@@ -32,7 +32,9 @@ class LogInHelper {
         } else {
           Fluttertoast.showToast(msg: jsonData.message.toString());
           log("response__${response.body}"); //print
-
+           if(isSelected.value){
+            SharedPref
+           }
       
           Get.offAllNamed(home);
           // Get.to(NextPage());
