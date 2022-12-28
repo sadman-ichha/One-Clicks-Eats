@@ -22,136 +22,136 @@ class LoginScreen extends StatelessWidget {
   // TextEditingController _passController = TextEditingController();
   GlobalKey<FormState> formKey = GlobalKey<FormState>();
 
-  loginNow() async {
-    isProgress.value = true;
-    await LogInHelper().login(
-        LoginCredentialController().emailORphoneController.text,
-        LoginCredentialController().passController.text);
-    isProgress.value = false;
-  }
+  final con = Get.put(LoginCredentialController());
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SafeArea(
-        child: SingleChildScrollView(
-          child: Form(
-            key: formKey,
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                SizedBox(height: 70.0.h),
-                Center(
-                  child: Image(
-                    height: 94.0.h,
-                    width: 86.0.w,
-                    image: AssetImage(AppImages.splashLogo),
-                  ),
-                ),
-                SizedBox(height: 16.0.h),
-                Text(
-                  "LogIn Now !",
-                  style: AppStyles.myTitleTextStyle,
-                ),
-                SizedBox(height: 5.0.h),
-                Text("Please login to continue our app",
-                    style: AppStyles.mySubTitleTextStyle),
-                SizedBox(height: 35.0.h),
-                customTextfield(
-                    hintsText: "Email or Phone",
-                    controller:
-                        LoginCredentialController().emailORphoneController,
-                    keyboardType: TextInputType.text,
-                    icon: Icons.perm_phone_msg_rounded,
-                    validate: (val) {
-                      if (val!.isEmpty) {
-                        return "This field is required";
-                      }
-                      return null;
-                    }),
-                SizedBox(height: 8.0.h),
-                passwordTextField("Password", Icons.lock_outline,
-                    LoginCredentialController().passController,
-                    validate: (val) {
-                  if (val!.isEmpty) {
-                    return "This field is required";
-                  } else if (val.length < 6) {
-                    return "Password must be 6 characters";
-                  }
-                  return null;
-                }),
-                SizedBox(height: 5.0.h),
-                Obx(
-                  () => Padding(
-                    padding: EdgeInsets.only(
-                      left: 23.0.w,
-                    ),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      children: [
-                        Checkbox(
-                            activeColor: AppColors.appleColor,
-                            shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(4.0.r)),
-                            value: isSelected.value,
-                            onChanged: (bool? val) {
-                              isSelected.value = val!;
-                              SharedPref.setPreferences(
-                                  AppStrings.rememberMe, val.toString());
-                              print("isSeleceted__$isSelected");
-                            }),
-                        Text(
-                          "Remember Me",
-                          style: AppStyles.mySubTitleTextStyle,
+      body: GetBuilder(
+          init: LoginCredentialController(),
+          builder: (LoginCredentialController controller) {
+            return SafeArea(
+              child: SingleChildScrollView(
+                child: Form(
+                  key: formKey,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      SizedBox(height: 70.0.h),
+                      Center(
+                        child: Image(
+                          height: 94.0.h,
+                          width: 86.0.w,
+                          image: AssetImage(AppImages.splashLogo),
                         ),
-                      ],
-                    ),
+                      ),
+                      SizedBox(height: 16.0.h),
+                      Text(
+                        "LogIn Now !",
+                        style: AppStyles.myTitleTextStyle,
+                      ),
+                      SizedBox(height: 5.0.h),
+                      Text("Please login to continue our app",
+                          style: AppStyles.mySubTitleTextStyle),
+                      SizedBox(height: 35.0.h),
+                      customTextfield(
+                          hintsText: "Email or Phone",
+                          controller:
+                              con.emailORphoneController.value,
+                          keyboardType: TextInputType.text,
+                          icon: Icons.perm_phone_msg_rounded,
+                          validate: (val) {
+                            if (val!.isEmpty) {
+                              return "This field is required";
+                            }
+                            return null;
+                          }),
+                      SizedBox(height: 8.0.h),
+                      passwordTextField("Password", Icons.lock_outline,
+                          con.passController.value,
+                          validate: (val) {
+                        if (val!.isEmpty) {
+                          return "This field is required";
+                        } else if (val.length < 6) {
+                          return "Password must be 6 characters";
+                        }
+                        return null;
+                      }),
+                      SizedBox(height: 5.0.h),
+                      Obx(
+                        () => Padding(
+                          padding: EdgeInsets.only(
+                            left: 23.0.w,
+                          ),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            children: [
+                              Checkbox(
+                                  activeColor: AppColors.appleColor,
+                                  shape: RoundedRectangleBorder(
+                                      borderRadius:
+                                          BorderRadius.circular(4.0.r)),
+                                  value: isSelected.value,
+                                  onChanged: (bool? val) {
+                                    isSelected.value = val!;
+                                    SharedPref.setPreferences(
+                                        AppStrings.rememberMe, val.toString());
+                                    print("isSeleceted__$isSelected");
+                                  }),
+                              Text(
+                                "Remember Me",
+                                style: AppStyles.mySubTitleTextStyle,
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                      SizedBox(height: 30.0.h),
+                      Obx(() {
+                        if (isProgress.value) {
+                          return AppStyles().progressIndicator();
+                        }
+                        return isSelected.value == true
+                            ? AppleButton("Log In", () {
+                                if (formKey.currentState!.validate()) {
+                                  con.loginNow();
+                                }
+                              })
+                            : InkWell(
+                                onTap: () {
+                                  Fluttertoast.showToast(
+                                      msg: "Please Selected Remember Me");
+                                },
+                                child: Container(
+                                  height: 60.0.h,
+                                  width: 307.0.w,
+                                  decoration: BoxDecoration(
+                                    color: Colors.grey,
+                                    borderRadius: BorderRadius.all(
+                                      Radius.circular(3.0.r),
+                                    ),
+                                  ),
+                                  child: Center(
+                                    child: Text(
+                                      "Log In",
+                                      style: TextStyle(
+                                          fontSize: 16.0.sp,
+                                          fontWeight: FontWeight.w600,
+                                          color: const Color(0xFFFFFFFF)),
+                                    ),
+                                  ),
+                                ),
+                              );
+                      }),
+                      SizedBox(height: 14.0.h),
+                      AppStyles()
+                          .richText("Have an Account? ", "Sign Up", signup),
+                    ],
                   ),
                 ),
-                SizedBox(height: 30.0.h),
-                Obx(() {
-                  if (isProgress.value) {
-                    return AppStyles().progressIndicator();
-                  }
-                  return isSelected.value == true
-                      ? AppleButton("Log In", () {
-                          if (formKey.currentState!.validate()) {
-                            loginNow();
-                          }
-                        })
-                      : InkWell(
-                          onTap: () {
-                            Fluttertoast.showToast(
-                                msg: "Please Selected Remember Me");
-                          },
-                          child: Container(
-                            height: 60.0.h,
-                            width: 307.0.w,
-                            decoration: BoxDecoration(
-                              color: Colors.grey,
-                              borderRadius: BorderRadius.all(
-                                Radius.circular(3.0.r),
-                              ),
-                            ),
-                            child: Center(
-                              child: Text(
-                                "Log In",
-                                style: TextStyle(
-                                    fontSize: 16.0.sp,
-                                    fontWeight: FontWeight.w600,
-                                    color: const Color(0xFFFFFFFF)),
-                              ),
-                            ),
-                          ),
-                        );
-                }),
-                SizedBox(height: 14.0.h),
-                AppStyles().richText("Have an Account? ", "Sign Up", signup),
-              ],
-            ),
-          ),
-        ),
-      ),
+              ),
+            );
+          }),
     );
   }
 }

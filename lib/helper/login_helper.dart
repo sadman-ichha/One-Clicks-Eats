@@ -36,6 +36,8 @@ class LogInHelper {
             SharedPref.setPreferences(
                 AppStrings.emailOr_Phone, emailORPhone.toString());
             SharedPref.setPreferences(AppStrings.passWord, password);
+            SharedPref.setPreferences(
+                AppStrings.authToken, jsonData.accessToken.toString());
           }
 
           Get.offAllNamed(home);

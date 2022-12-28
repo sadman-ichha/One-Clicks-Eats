@@ -3,25 +3,35 @@ import 'package:get/get.dart';
 import '../business_logic/shared_preferences.dart';
 import '../const/app_string.dart';
 import '../const/global_variable.dart';
+import '../helper/login_helper.dart';
 
 class LoginCredentialController extends GetxController {
-  TextEditingController emailORphoneController = TextEditingController();
-  TextEditingController passController = TextEditingController();
-  void getInitialize() async {
+ final  emailORphoneController = TextEditingController().obs;
+  final  passController = TextEditingController().obs;
+  @override
+  void onInit() {
+    getLoginInitialize();
+    super.onInit();
+  }
+
+  void getLoginInitialize() async {
     if (await SharedPref.getPreferences(AppStrings.rememberMe) == "true") {
       isSelected.value = true;
-      emailORphoneController.text =
+      emailORphoneController.value.text =
           (await SharedPref.getPreferences(AppStrings.emailOr_Phone))!;
-      passController.text =
+      passController.value.text =
           (await SharedPref.getPreferences(AppStrings.passWord))!;
     } else {
       isSelected.value = false;
     }
   }
 
-  @override
-  void onInit() {
-    getInitialize();
-    super.onInit();
+  loginNow() async {
+    isProgress.value = true;
+    await LogInHelper().login(
+     emailORphoneController.value.text,
+     passController.value.text,
+    );
+    isProgress.value = false;
   }
 }
