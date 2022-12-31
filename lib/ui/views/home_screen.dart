@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:one_clicks_eats/const/app_colors.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -15,16 +16,24 @@ class HomeScreen extends StatelessWidget {
           ),
         ],
       ),
-      bottomNavigationBar: BottomNavigationBar(currentIndex: 0, items: [
-        BottomNavigationBarItem(
-          label: "Home",
-          icon: FaIcon(FontAwesomeIcons.house),
-        ),
-        BottomNavigationBarItem(
-          icon: Icon(Icons.verified_user),
-          label: "Home",
-        )
-      ]),
+      bottomNavigationBar: BottomNavigationBar(
+          selectedItemColor: AppColors.appleColor,
+          currentIndex: 0,
+          items: [
+            BottomNavigationBarItem(
+              label: "Home",
+              icon: FaIcon(FontAwesomeIcons.house, size: 15.0),
+            ),
+            BottomNavigationBarItem(label: "Home", icon: Icon(Icons.home)),
+            BottomNavigationBarItem(
+              label: "Home",
+              icon: FaIcon(FontAwesomeIcons.house, size: 15.0),
+            ),
+            BottomNavigationBarItem(
+              label: "Home",
+              icon: FaIcon(FontAwesomeIcons.house, size: 15.0),
+            ),
+          ]),
     );
   }
 }
