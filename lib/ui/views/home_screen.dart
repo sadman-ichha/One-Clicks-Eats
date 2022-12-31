@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -10,11 +11,20 @@ class HomeScreen extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Center(
-            child: Icon(Icons.home_outlined),
+            child: FaIcon(FontAwesomeIcons.house),
           ),
         ],
       ),
-      bottomNavigationBar: BottomNavigationBar(items: []),
+      bottomNavigationBar: BottomNavigationBar(currentIndex: 0, items: [
+        BottomNavigationBarItem(
+          label: "Home",
+          icon: FaIcon(FontAwesomeIcons.house),
+        ),
+        BottomNavigationBarItem(
+          icon: Icon(Icons.verified_user),
+          label: "Home",
+        )
+      ]),
     );
   }
 }
