@@ -11,7 +11,7 @@ class BottomNavControllerScreen extends StatelessWidget {
   // const HomeScreen({super.key});
 
   RxInt _currentIndex = 0.obs;
-  List _pages = [
+  List _navPages = [
     HomeScreen(),
     FavoriteScreen(),
     CartScreen(),
@@ -22,31 +22,34 @@ class BottomNavControllerScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Obx(
       () => Scaffold(
-        body: _pages[_currentIndex.value],
+        body: _navPages[_currentIndex.value],
         bottomNavigationBar: BottomNavigationBar(
             currentIndex: _currentIndex.value,
             elevation: 5.0,
             selectedItemColor: AppColors.appleColor,
-            backgroundColor: Colors.black,
+            unselectedItemColor: Colors.black45,
             onTap: (values) {
               _currentIndex.value = values;
             },
             items: [
               BottomNavigationBarItem(
                 label: "Home",
-                icon: FaIcon(FontAwesomeIcons.house, size: 15.0),
+                icon: FaIcon(FontAwesomeIcons.house, size: 20.0),
               ),
               BottomNavigationBarItem(
                 label: "Favourite",
-                icon: FaIcon(FontAwesomeIcons.heart),
+                icon: FaIcon(FontAwesomeIcons.heart, size: 22.0),
               ),
               BottomNavigationBarItem(
                 label: "Cart",
-                icon: FaIcon(FontAwesomeIcons.bucket, size: 15.0),
+                icon: FaIcon(FontAwesomeIcons.cartShopping, size: 20.0),
               ),
               BottomNavigationBarItem(
                 label: "Profile",
-                icon: FaIcon(FontAwesomeIcons.house, size: 15.0),
+                icon: FaIcon(
+                  FontAwesomeIcons.user,
+                  size: 18.0,
+                ),
               ),
             ]),
       ),

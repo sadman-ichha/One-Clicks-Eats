@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:one_clicks_eats/ui/styles/app_style.dart';
 
 class HomeScreen extends StatelessWidget {
   // const HomeScreen({super.key});
@@ -7,13 +8,17 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Center(
-            child: Text("aaaaaaaaa"),
-          ),
-        ],
+      body: SafeArea(
+        child: Column(
+          // mainAxisAlignment: MainAxisAlignment.start,
+          children: [
+            SizedBox(height: 20.0.h),
+            Text(
+              "Let's Find Quality Food 😋🍴",
+              style: AppStyles.myTitleTextStyle,
+            ),
+          ],
+        ),
       ),
     );
   }
