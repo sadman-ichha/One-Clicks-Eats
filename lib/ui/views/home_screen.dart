@@ -19,29 +19,31 @@ class HomeScreen extends StatelessWidget {
           ),
         ],
       ),
-      bottomNavigationBar: BottomNavigationBar(
-          currentIndex: _currentIndex.value,
-          elevation: 5.0,
-          selectedItemColor: AppColors.appleColor,
-          backgroundColor: Colors.black,
-          items: [
-            BottomNavigationBarItem(
-              label: "Home",
-              icon: FaIcon(FontAwesomeIcons.house, size: 15.0),
-            ),
-            BottomNavigationBarItem(
-              label: "Favourite",
-              icon: FaIcon(FontAwesomeIcons.heart),
-            ),
-            BottomNavigationBarItem(
-              label: "Cart",
-              icon: FaIcon(FontAwesomeIcons.bucket, size: 15.0),
-            ),
-            BottomNavigationBarItem(
-              label: "Profile",
-              icon: FaIcon(FontAwesomeIcons.house, size: 15.0),
-            ),
-          ]),
+      bottomNavigationBar: Obx(
+        () => BottomNavigationBar(
+            currentIndex: _currentIndex.value,
+            elevation: 5.0,
+            selectedItemColor: AppColors.appleColor,
+            backgroundColor: Colors.black,
+            items: [
+              BottomNavigationBarItem(
+                label: "Home",
+                icon: FaIcon(FontAwesomeIcons.house, size: 15.0),
+              ),
+              BottomNavigationBarItem(
+                label: "Favourite",
+                icon: FaIcon(FontAwesomeIcons.heart),
+              ),
+              BottomNavigationBarItem(
+                label: "Cart",
+                icon: FaIcon(FontAwesomeIcons.bucket, size: 15.0),
+              ),
+              BottomNavigationBarItem(
+                label: "Profile",
+                icon: FaIcon(FontAwesomeIcons.house, size: 15.0),
+              ),
+            ]),
+      ),
     );
   }
 }
