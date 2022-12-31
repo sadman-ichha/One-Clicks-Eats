@@ -10,11 +10,11 @@ class HomeScreen extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Center(
-            child: Text("Aaaaaaaaaaaaaaaaaa"),
+            child: Icon(Icons.home_outlined),
           ),
-         
         ],
       ),
+      bottomNavigationBar: BottomNavigationBar(items: []),
     );
   }
 }
