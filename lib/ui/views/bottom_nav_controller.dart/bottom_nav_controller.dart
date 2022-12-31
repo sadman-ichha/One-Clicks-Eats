@@ -3,10 +3,13 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
 import 'package:one_clicks_eats/const/app_colors.dart';
 
-class HomeScreen extends StatelessWidget {
+class BottomNavControllerScreen extends StatelessWidget {
   // const HomeScreen({super.key});
 
   RxInt _currentIndex = 0.obs;
+  List page = [
+    
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -20,13 +23,13 @@ class HomeScreen extends StatelessWidget {
         ],
       ),
       bottomNavigationBar: BottomNavigationBar(
-          onTap: (val) {
-            _currentIndex.value = val;
-          },
           currentIndex: _currentIndex.value,
           elevation: 5.0,
           selectedItemColor: AppColors.appleColor,
           backgroundColor: Colors.black,
+          onTap: (values) {
+            _currentIndex.value = values;
+          },
           items: [
             BottomNavigationBarItem(
               label: "Home",
