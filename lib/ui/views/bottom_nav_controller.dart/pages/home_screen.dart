@@ -21,6 +21,9 @@ class HomeScreen extends StatelessWidget {
       ),
       bottomNavigationBar: Obx(
         () => BottomNavigationBar(
+            onTap: (val) {
+              _currentIndex.value = val;
+            },
             currentIndex: _currentIndex.value,
             elevation: 5.0,
             selectedItemColor: AppColors.appleColor,
