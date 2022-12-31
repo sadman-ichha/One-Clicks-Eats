@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:get/route_manager.dart';
-import 'package:one_clicks_eats/ui/views/next_page.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -14,11 +12,7 @@ class HomeScreen extends StatelessWidget {
           Center(
             child: Text("Aaaaaaaaaaaaaaaaaa"),
           ),
-          ElevatedButton(
-              onPressed: () {
-                Get.to(()=>NextPage());
-              },
-              child: Text("NxPage")),
+         
         ],
       ),
     );
