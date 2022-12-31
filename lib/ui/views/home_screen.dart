@@ -20,7 +20,7 @@ class HomeScreen extends StatelessWidget {
         ],
       ),
       bottomNavigationBar: BottomNavigationBar(
-          currentIndex: 0,
+          currentIndex: _currentIndex.value,
           elevation: 5.0,
           selectedItemColor: AppColors.appleColor,
           backgroundColor: Colors.black,
