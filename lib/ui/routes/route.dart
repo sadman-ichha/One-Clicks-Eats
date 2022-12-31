@@ -1,5 +1,5 @@
 import 'package:get/get.dart';
-import 'package:one_clicks_eats/ui/views/home_page.dart';
+import 'package:one_clicks_eats/ui/views/home_screen.dart';
 import 'package:one_clicks_eats/ui/views/login_screen.dart';
 import 'package:one_clicks_eats/ui/views/onboarding_screen.dart';
 import 'package:one_clicks_eats/ui/views/sign_up_screen.dart';
