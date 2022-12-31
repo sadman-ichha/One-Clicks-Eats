@@ -1,4 +1,5 @@
 import 'package:get/get.dart';
+import 'package:one_clicks_eats/ui/views/bottom_nav_controller.dart/bottom_nav_controller.dart';
 import 'package:one_clicks_eats/ui/views/bottom_nav_controller.dart/pages/home_screen.dart';
 import 'package:one_clicks_eats/ui/views/login_screen.dart';
 import 'package:one_clicks_eats/ui/views/onboarding_screen.dart';
@@ -11,6 +12,7 @@ const String signup = "/signup-screen";
 const String login = "/login-screen";
 const String home = "/home-screen";
 const String otp = "/otp-screen";
+const String bottomNavController = "/bottomNavController";
 
 List<GetPage> getPages = [
   GetPage(
@@ -36,5 +38,9 @@ List<GetPage> getPages = [
   GetPage(
     name: home,
     page: () =>  HomeScreen(),
+  ),
+   GetPage(
+    name: bottomNavController,
+    page: () =>  BottomNavControllerScreen(),
   ),
 ];

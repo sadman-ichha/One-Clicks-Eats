@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-class HomeScreen extends StatelessWidget {
+class CartScreen extends StatelessWidget {
   // const HomeScreen({super.key});
 
   @override
@@ -11,7 +11,7 @@ class HomeScreen extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Center(
-            child: Text("aaaaaaaaa"),
+            child: FaIcon(FontAwesomeIcons.house),
           ),
         ],
       ),

@@ -16,7 +16,7 @@ class SplashController extends GetxController {
     if (token == "") {
       Future.delayed(Duration(seconds: 3), () => Get.offAllNamed(onboarding));
     } else {
-      Future.delayed(Duration(seconds: 2), () => Get.toNamed(home));
+      Future.delayed(Duration(seconds: 1), () => Get.toNamed(bottomNavController));
     }
 
     super.onReady();
