@@ -17,11 +17,11 @@ class ProductsModel {
         this.status,
     });
 
-    List<Datum> data;
-    ProductsModelLinks links;
-    Meta meta;
-    bool success;
-    int status;
+    List<Datum> ?data;
+    ProductsModelLinks ?links;
+    Meta? meta;
+    bool ?success;
+    int ?status;
 
     factory ProductsModel.fromJson(Map<String, dynamic> json) => ProductsModel(
         data: List<Datum>.from(json["data"].map((x) => Datum.fromJson(x))),
@@ -32,9 +32,9 @@ class ProductsModel {
     );
 
     Map<String, dynamic> toJson() => {
-        "data": List<dynamic>.from(data.map((x) => x.toJson())),
-        "links": links.toJson(),
-        "meta": meta.toJson(),
+        "data": List<dynamic>.from(data!.map((x) => x.toJson())),
+        "links": links!.toJson(),
+        "meta": meta!.toJson(),
         "success": success,
         "status": status,
     };
@@ -65,27 +65,27 @@ class Datum {
         this.links,
     });
 
-    int id;
-    String name;
-    String thumbnailImage;
+    int ?id;
+    String ?name;
+    String ?thumbnailImage;
     dynamic bannerImage;
-    bool hasDiscount;
-    String strokedPrice;
-    int minQty;
-    int maxQty;
-    String mainPrice;
-    int strokedPriceWu;
-    int mainPriceWu;
-    int rating;
-    int sales;
-    int inCart;
-    Unit unit;
-    int unitValue;
-    int lowStockQuantity;
-    int quantity;
-    int stock;
-    String description;
-    DatumLinks links;
+    bool ?hasDiscount;
+    String? strokedPrice;
+    int? minQty;
+    int ?maxQty;
+    String? mainPrice;
+    int ?strokedPriceWu;
+    int? mainPriceWu;
+    int ?rating;
+    int ?sales;
+    int ?inCart;
+    Unit ?unit;
+    int ?unitValue;
+    int? lowStockQuantity;
+    int ?quantity;
+    int ?stock;
+    String ?description;
+    DatumLinks? links;
 
     factory Datum.fromJson(Map<String, dynamic> json) => Datum(
         id: json["id"],
@@ -102,7 +102,7 @@ class Datum {
         rating: json["rating"],
         sales: json["sales"],
         inCart: json["in_cart"],
-        unit: unitValues.map[json["unit"]],
+        unit: unitValues.map![json["unit"]],
         unitValue: json["unit_value"],
         lowStockQuantity: json["low_stock_quantity"],
         quantity: json["quantity"],
@@ -132,7 +132,7 @@ class Datum {
         "quantity": quantity,
         "stock": stock,
         "description": description,
-        "links": links.toJson(),
+        "links": links!.toJson(),
     };
 }
 
@@ -141,7 +141,7 @@ class DatumLinks {
         this.details,
     });
 
-    String details;
+    String ?details;
 
     factory DatumLinks.fromJson(Map<String, dynamic> json) => DatumLinks(
         details: json["details"],
@@ -168,10 +168,10 @@ class ProductsModelLinks {
         this.next,
     });
 
-    String first;
-    String last;
+    String ?first;
+    String ?last;
     dynamic prev;
-    String next;
+    String ?next;
 
     factory ProductsModelLinks.fromJson(Map<String, dynamic> json) => ProductsModelLinks(
         first: json["first"],
@@ -200,14 +200,14 @@ class Meta {
         this.total,
     });
 
-    int currentPage;
-    int from;
-    int lastPage;
-    List<Link> links;
-    String path;
-    int perPage;
-    int to;
-    int total;
+    int ?currentPage;
+    int ?from;
+    int ?lastPage;
+    List<Link>? links;
+    String? path;
+    int ?perPage;
+    int ?to;
+    int ?total;
 
     factory Meta.fromJson(Map<String, dynamic> json) => Meta(
         currentPage: json["current_page"],
@@ -224,7 +224,7 @@ class Meta {
         "current_page": currentPage,
         "from": from,
         "last_page": lastPage,
-        "links": List<dynamic>.from(links.map((x) => x.toJson())),
+        "links": List<dynamic>.from(links!.map((x) => x.toJson())),
         "path": path,
         "per_page": perPage,
         "to": to,
@@ -239,9 +239,9 @@ class Link {
         this.active,
     });
 
-    String url;
-    String label;
-    bool active;
+    String ?url;
+    String? label;
+    bool ?active;
 
     factory Link.fromJson(Map<String, dynamic> json) => Link(
         url: json["url"] == null ? null : json["url"],
@@ -257,15 +257,15 @@ class Link {
 }
 
 class EnumValues<T> {
-    Map<String, T> map;
-    Map<T, String> reverseMap;
+    Map<String, T> ?map;
+    Map<T, String> ?reverseMap;
 
     EnumValues(this.map);
 
     Map<T, String> get reverse {
         if (reverseMap == null) {
-            reverseMap = map.map((k, v) => new MapEntry(v, k));
+            reverseMap = map!.map((k, v) => new MapEntry(v, k));
         }
-        return reverseMap;
+        return reverseMap!;
     }
 }

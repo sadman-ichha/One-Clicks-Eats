@@ -17,6 +17,7 @@ class HomeScreen extends StatelessWidget {
               "Let's Find Quality Food 😋🍴",
               style: AppStyles.myTitleTextStyle,
             ),
+            SizedBox(height: 20.0.h),
           ],
         ),
       ),
