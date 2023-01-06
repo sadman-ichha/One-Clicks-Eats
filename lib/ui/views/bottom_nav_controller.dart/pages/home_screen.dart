@@ -24,7 +24,15 @@ class HomeScreen extends StatelessWidget {
               width: 300.0.w,
               decoration: BoxDecoration(
                 color: AppColors.appleColor,
-                borderRadius: BorderRadius.all(Radius.circular(12.0)),
+                borderRadius: BorderRadius.all(
+                  Radius.circular(12.0),
+                ),
+              ),
+              child: Row(
+                children: [
+                  Icon(Icons.search),
+                  TextFormField(),
+                ],
               ),
             )
           ],
