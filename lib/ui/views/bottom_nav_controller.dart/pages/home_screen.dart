@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:one_clicks_eats/const/app_colors.dart';
 import 'package:one_clicks_eats/ui/styles/app_style.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -19,7 +20,12 @@ class HomeScreen extends StatelessWidget {
             ),
             SizedBox(height: 20.0.h),
             Container(
-              height: ,
+              height: 50.0.h,
+              width: 300.0.w,
+              decoration: BoxDecoration(
+                color: AppColors.appleColor,
+                
+              ),
             )
           ],
         ),
