@@ -18,6 +18,9 @@ class HomeScreen extends StatelessWidget {
               style: AppStyles.myTitleTextStyle,
             ),
             SizedBox(height: 20.0.h),
+            Container(
+              height: ,
+            )
           ],
         ),
       ),
