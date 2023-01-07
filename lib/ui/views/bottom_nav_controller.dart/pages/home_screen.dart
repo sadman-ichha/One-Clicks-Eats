@@ -11,43 +11,54 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
-        child: Column(
-          // mainAxisAlignment: MainAxisAlignment.start,
-          children: [
-            SizedBox(height: 20.0.h),
-            Text(
-              "Let's Find Quality Food 😋🍴",
-              style: AppStyles.myTitleTextStyle,
-            ),
-            SizedBox(height: 20.0.h),
-            Container(
-              height: 50.0.h,
-              width: 300.0.w,
-              decoration: BoxDecoration(
-                color: AppColors.scaffoldBackgroundColor,
-                borderRadius: BorderRadius.all(
-                  Radius.circular(12.0.r),
+        child: Padding(
+          padding: EdgeInsets.only(left: 20.0.w, right: 20.0.w),
+          child: Column(
+            //mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              SizedBox(height: 20.0.h),
+              Text(
+                "Let's Find Quality Food 😋🍴",
+                style: AppStyles.myTitleTextStyle,
+              ),
+              SizedBox(height: 20.0.h),
+              Center(
+                child: Container(
+                  height: 50.0.h,
+                  width: 300.0.w,
+                  decoration: BoxDecoration(
+                    color: AppColors.scaffoldBackgroundColor,
+                    borderRadius: BorderRadius.all(
+                      Radius.circular(25.0.r),
+                    ),
+                  ),
+                  child: Row(
+                    //mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    children: [
+                      SizedBox(width: 18.0.w),
+                      FaIcon(
+                        FontAwesomeIcons.magnifyingGlass,
+                        size: 18.0,
+                        color: Colors.black54,
+                      ),
+                      SizedBox(width: 10.0.w),
+                      Text(
+                        "Search Your Favorite Food",
+                        style: AppStyles.mySubTitleTextStyle,
+                      ),
+                      SizedBox(width: 20.0.w),
+                      IconButton(
+                          onPressed: () {},
+                          icon: FaIcon(FontAwesomeIcons.sliders)),
+                    ],
+                  ),
                 ),
               ),
-              child: Row(
-                //mainAxisAlignment: MainAxisAlignment.spaceAround,
-                children: [
-                  SizedBox(width: 15.0.w),
-                  FaIcon(
-                    FontAwesomeIcons.magnifyingGlass,
-                  ),
-                  SizedBox(width: 12.0.w),
-                  Text(
-                    "Search Your Favorite Food",
-                    style: AppStyles.mySubTitleTextStyle,
-                  ),
-                  SizedBox(width: 20.0.w),
-                  IconButton(
-                      onPressed: () {}, icon: FaIcon(FontAwesomeIcons.sliders)),
-                ],
-              ),
-            )
-          ],
+              SizedBox(height: 30.0.h),
+              Text("Menu", style: AppStyles.myTitleTextStyle),
+            ],
+          ),
         ),
       ),
     );
