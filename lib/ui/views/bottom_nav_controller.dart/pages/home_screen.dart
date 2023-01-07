@@ -24,34 +24,37 @@ class HomeScreen extends StatelessWidget {
               ),
               SizedBox(height: 20.0.h),
               Center(
-                child: Container(
-                  height: 50.0.h,
-                  width: 300.0.w,
-                  decoration: BoxDecoration(
-                    color: AppColors.scaffoldBackgroundColor,
-                    borderRadius: BorderRadius.all(
-                      Radius.circular(25.0.r),
+                child: InkWell(
+                  onTap: () {},
+                  child: Container(
+                    height: 50.0.h,
+                    width: 300.0.w,
+                    decoration: BoxDecoration(
+                      color: AppColors.scaffoldBackgroundColor,
+                      borderRadius: BorderRadius.all(
+                        Radius.circular(25.0.r),
+                      ),
                     ),
-                  ),
-                  child: Row(
-                    //mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    children: [
-                      SizedBox(width: 18.0.w),
-                      FaIcon(
-                        FontAwesomeIcons.magnifyingGlass,
-                        size: 18.0,
-                        color: Colors.black54,
-                      ),
-                      SizedBox(width: 10.0.w),
-                      Text(
-                        "Search Your Favorite Food",
-                        style: AppStyles.mySubTitleTextStyle,
-                      ),
-                      SizedBox(width: 20.0.w),
-                      IconButton(
-                          onPressed: () {},
-                          icon: FaIcon(FontAwesomeIcons.sliders)),
-                    ],
+                    child: Row(
+                      //mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      children: [
+                        SizedBox(width: 18.0.w),
+                        FaIcon(
+                          FontAwesomeIcons.magnifyingGlass,
+                          size: 18.0,
+                          color: Colors.black54,
+                        ),
+                        SizedBox(width: 10.0.w),
+                        Text(
+                          "Search Your Favorite Food",
+                          style: AppStyles.mySubTitleTextStyle,
+                        ),
+                        SizedBox(width: 20.0.w),
+                        IconButton(
+                            onPressed: () {},
+                            icon: FaIcon(FontAwesomeIcons.sliders)),
+                      ],
+                    ),
                   ),
                 ),
               ),
