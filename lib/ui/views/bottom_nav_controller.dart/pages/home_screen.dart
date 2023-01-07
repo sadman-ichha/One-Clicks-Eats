@@ -28,9 +28,7 @@ class HomeScreen extends StatelessWidget {
                   Radius.circular(12.0.r),
                 ),
               ),
-              child: Row(
-                children: [],
-              ),
+              child: Text("Search on best food"),
             )
           ],
         ),
