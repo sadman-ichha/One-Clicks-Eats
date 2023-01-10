@@ -72,15 +72,15 @@ class HomeScreen extends StatelessWidget {
                     );
                   } else {
                     return GridView.builder(
-                        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                          crossAxisCount: 3,
-                          childAspectRatio: 3 / 4,
-                        ),
-                        itemBuilder: ((context, index) {
-                          return Card();
-                        }));
+                      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                        crossAxisCount: 3,
+                        childAspectRatio: 3 / 4,
+                      ),
+                      itemBuilder: ((context, index) {
+                        return Card();
+                      }),
+                    );
                   }
-                  return null;
                 }),
               )
             ],
