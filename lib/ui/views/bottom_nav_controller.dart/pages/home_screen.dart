@@ -3,12 +3,13 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
 import 'package:one_clicks_eats/const/app_colors.dart';
+import 'package:one_clicks_eats/const/global_variable.dart';
 import 'package:one_clicks_eats/controller/product_crontroller.dart';
 import 'package:one_clicks_eats/ui/styles/app_style.dart';
 
 class HomeScreen extends StatelessWidget {
   // const HomeScreen({super.key});
-   final ProductController _productController = Get.put(ProductController());
+  final ProductController _productController = Get.put(ProductController());
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -63,9 +64,25 @@ class HomeScreen extends StatelessWidget {
               SizedBox(height: 30.0.h),
               Text("Menu", style: AppStyles.myTitleTextStyle),
               SizedBox(height: 30.0.h),
-              if( ){
-
-              }
+              Expanded(
+                child: Obx(() {
+                  if (isProgress.value) {
+                    return Center(
+                      child: AppStyles().progressIndicator(),
+                    );
+                  } else {
+                    return GridView.builder(
+                        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                          crossAxisCount: 3,
+                          childAspectRatio: 3 / 4,
+                        ),
+                        itemBuilder: ((context, index) {
+                          return Card();
+                        }));
+                  }
+                  return null;
+                }),
+              )
             ],
           ),
         ),
