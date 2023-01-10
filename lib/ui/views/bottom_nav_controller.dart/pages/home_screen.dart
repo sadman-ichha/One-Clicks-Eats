@@ -60,6 +60,12 @@ class HomeScreen extends StatelessWidget {
               ),
               SizedBox(height: 30.0.h),
               Text("Menu", style: AppStyles.myTitleTextStyle),
+              SizedBox(height: 30.0.h),
+              Expanded(
+                  child: GridView.builder(
+                      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                          crossAxisCount: 3),
+                      itemBuilder: itemBuilder),),
             ],
           ),
         ),
