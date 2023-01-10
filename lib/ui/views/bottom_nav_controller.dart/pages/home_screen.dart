@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -9,7 +11,7 @@ import 'package:one_clicks_eats/ui/styles/app_style.dart';
 
 class HomeScreen extends StatelessWidget {
   // const HomeScreen({super.key});
-  final ProductController _productController = Get.put(ProductController());
+  final ProductController productController = Get.put(ProductController());
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -72,12 +74,30 @@ class HomeScreen extends StatelessWidget {
                     );
                   } else {
                     return GridView.builder(
+                      itemCount:
+                          productController.productList.value.data!.length,
                       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                        crossAxisCount: 3,
+                        crossAxisCount: 2,
                         childAspectRatio: 3 / 4,
                       ),
                       itemBuilder: ((context, index) {
-                        return Card();
+                        var datas =
+                            productController.productList.value.data![index];
+                        // _counter.add(0);
+                        return Card(
+                          child: Column(
+                            children: [
+                              Text(datas.name.toString()),
+                              ClipRRect(
+                                child: Image.network(
+                                  datas.thumbnailImage.toString(),
+                                  fit: BoxFit.fill,
+                                  height: 100,
+                                ),
+                              ),
+                            ],
+                          ),
+                        );
                       }),
                     );
                   }

@@ -5,7 +5,7 @@ import 'package:one_clicks_eats/models/products_model.dart';
 
 class ProductController extends GetxController {
   var productList = ProductsModel().obs;
-  var _productHelper = ProductHelper();
+ final ProductHelper _productHelper = ProductHelper();
 
   @override
   void onInit() {
