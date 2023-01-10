@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:get/get.dart';
 import 'package:one_clicks_eats/const/app_colors.dart';
+import 'package:one_clicks_eats/controller/product_crontroller.dart';
 import 'package:one_clicks_eats/ui/styles/app_style.dart';
 
 class HomeScreen extends StatelessWidget {
   // const HomeScreen({super.key});
-
+   final ProductController _productController = Get.put(ProductController());
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -61,14 +63,9 @@ class HomeScreen extends StatelessWidget {
               SizedBox(height: 30.0.h),
               Text("Menu", style: AppStyles.myTitleTextStyle),
               SizedBox(height: 30.0.h),
-              Expanded(
-                child: GridView.builder(
-                    gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                        crossAxisCount: 3),
-                    itemBuilder: ((context, index) {
-                      return Card()
-                    })),
-              ),
+              if( ){
+
+              }
             ],
           ),
         ),
