@@ -25,7 +25,7 @@ class FoodApp extends StatelessWidget {
             theme: ThemeData(
               backgroundColor: AppColors.scaffoldBackgroundColor,
               textTheme: GoogleFonts.nunitoTextTheme(
-                Theme.of(context).textTheme.apply(),
+                Theme.of(context).textTheme.apply() ,
               ),
             ),
             initialRoute: splash,
